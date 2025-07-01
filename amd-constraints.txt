@@ -11,3 +11,8 @@ nvidia-cusparselt-cu12==0
 nvidia-nccl-cu12==0
 nvidia-nvjitlink-cu12==0
 nvidia-nvtx-cu12==0
+nvidia_cublas_cu11==0
+nvidia_cuda_cupti_cu11==0
+nvidia_cuda_nvrtc_cu11==0
+nvidia_cuda_runtime_cu11==0
+nvidia_cudnn_cu11==0
