@@ -6,13 +6,13 @@ import torch
 from monai.transforms import EnsureChannelFirst
 
 # Load image
-image_path = "/home/AMD/souchatt/work/monai_sample_images/oxford.tif"
+image_path = "/home/AMD/souchatt/work/monai_sample_images/77917-ome_base.tif"
 print("Loading image using CuCIM...")
 img = CuImage(image_path)
 print(f"Image size (W x H): {img.size()}")
 
 # Extract region
-region = img.read_region(location=(10, 10), size=(50, 50))
+region = img.read_region(location=[50000, 40000], size=(512, 512))
 region_np = np.array(region)
 
 # Drop alpha if present
