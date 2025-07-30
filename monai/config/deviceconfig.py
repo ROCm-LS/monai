@@ -88,6 +88,7 @@ def get_optional_config_values():
     output["mlflow"] = get_package_version("mlflow")
     output["pynrrd"] = get_package_version("nrrd")
     output["clearml"] = get_package_version("clearml")
+    output["cucim"] = get_package_version("cucim")
 
     return output
 
