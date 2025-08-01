@@ -54,7 +54,6 @@ typeguard<3  # https://github.com/microsoft/nni/issues/5457
 filelock<3.12.0  # https://github.com/microsoft/nni/issues/5523
 zarr
 lpips==0.1.4
-nvidia-ml-py
 huggingface_hub
 pyamg>=5.0.0
 git+https://github.com/facebookresearch/segment-anything.git@6fdee8f2727f4506cfbbe553e23b895e27956588
@@ -62,3 +61,5 @@ onnx_graphsurgeon
 polygraphy
 wheel 
 setuptools
+moviepy # Optional
+opencv-contrib-python # Optional
