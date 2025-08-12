@@ -1,4 +1,4 @@
-name: monai
+name: amd-monai
 channels:
   - pytorch
   - defaults
@@ -6,10 +6,9 @@ channels:
   - conda-forge
 dependencies:
   - numpy>=1.24,<3.0
-  - pytorch>=2.3.0
+  - pytorch-triton-rocm
   - torchio
   - torchvision
-  - pytorch-cuda>=11.6
   - pip
   - pip:
     - -r requirements-dev.txt
