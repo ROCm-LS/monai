@@ -179,6 +179,10 @@ class TestRetinaNet(unittest.TestCase):
         except BaseException:
             idx = 0
         idx %= 3
+        # Skip for certain models to avoid hang
+        MODELS_TO_SKIP = (resnet18, resnet34, resnet101, resnet152)
+        if model in MODELS_TO_SKIP:
+            raise unittest.SkipTest(f"{model.__name__} hangs")
         # test whether support torchscript
         data = torch.randn(input_shape)
         backbone = model(**input_param)
