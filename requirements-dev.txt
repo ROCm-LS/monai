@@ -61,5 +61,8 @@ onnx_graphsurgeon
 polygraphy
 wheel 
 setuptools
+ITK
+ignite
+pytorch-ignite 
 moviepy # Optional
 opencv-contrib-python # Optional
