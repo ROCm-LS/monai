@@ -18,7 +18,7 @@ transform = [
 ]
 
 # Define a simple dataset
-data_dir = "/home/AMD/souchatt/work/monai_sample_images"
+data_dir = "/monai_sample_images"
 images = [os.path.join(data_dir, f) for f in os.listdir(data_dir) if f.endswith('.nii.gz')]
 print("Images found:", images)
 dataset = Dataset(data=images, transform=transform)

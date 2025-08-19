@@ -6,7 +6,8 @@ import torch
 from monai.transforms import EnsureChannelFirst
 
 # Load image
-image_path = "/home/AMD/souchatt/work/monai_sample_images/77917-ome_base.tif"
+# Download image and keep in /monai_sample_images/ folder
+image_path = "/monai_sample_images/77917-ome_base.tif"
 print("Loading image using CuCIM...")
 img = CuImage(image_path)
 print(f"Image size (W x H): {img.size()}")
