@@ -4,7 +4,7 @@
 
 **M**edical **O**pen **N**etwork for **AI** for **AMD ROCm&trade;**
 
-MONAI for AMD ROCm is a [PyTorch](https://pytorch.org/)-based, [open-source](https://github.com/ROCm-LS/MONAI/blob/dev/LICENSE) framework for deep learning in healthcare imaging, part of the [PyTorch Ecosystem](https://pytorch.org/ecosystem/), enabled for AMD Instinct GPUs.
+MONAI for AMD ROCm is a [PyTorch](https://pytorch.org/)-based, [open-source](LICENSE) framework for deep learning in healthcare imaging, part of the [PyTorch Ecosystem](https://pytorch.org/ecosystem/), enabled for AMD Instinct GPUs.
 Its ambitions are as follows:
 
 - Developing a community of academic, industrial and clinical researchers collaborating on a common foundation;
@@ -56,7 +56,7 @@ Utilizing [the MONAI Bundle format](https://docs.monai.io/en/latest/bundle_intro
 
 ## Contributing
 
-For guidance on making a contribution to MONAI, see the [contributing guidelines](https://github.com/ROCm-LS/MONAI/blob/dev/CONTRIBUTING.md).
+For guidance on making a contribution to MONAI, see the [contributing guidelines](CONTRIBUTING.md).
 
 ## Community
 
