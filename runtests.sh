@@ -12,7 +12,7 @@
 # limitations under the License.
 
 # script for running all tests
-set -xe
+set -e
 
 # output formatting
 separator=""
