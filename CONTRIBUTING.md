@@ -32,7 +32,7 @@ We encourage you to create pull requests early. It helps us track the contributi
 Please note that, as per PyTorch for AMD ROCm&trade;, MONAI for AMD ROCm&trade; uses American English spelling. This means classes and variables should be: normali**z**e, visuali**z**e, colo~~u~~r, etc.
 
 ### Preparing pull requests
-To ensure the code quality, MONAI for AMD ROCm(TM) relies on several linting tools ([flake8 and its plugins](https://gitlab.com/pycqa/flake8), [black](https://github.com/psf/black), [isort](https://github.com/timothycrosley/isort), [ruff](https://github.com/astral-sh/ruff)),
+To ensure the code quality, MONAI for AMD ROCm&trade; relies on several linting tools ([flake8 and its plugins](https://gitlab.com/pycqa/flake8), [black](https://github.com/psf/black), [isort](https://github.com/timothycrosley/isort), [ruff](https://github.com/astral-sh/ruff)),
 static type analysis tools ([mypy](https://github.com/python/mypy), [pytype](https://github.com/google/pytype)), as well as a set of unit/integration tests.
 
 This section highlights all the necessary preparation steps required before sending a pull request.
