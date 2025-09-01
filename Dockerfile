@@ -9,11 +9,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# To build with a different base image
-
-# Copyright (c) 2025, AMD CORPORATION. All rights reserved.
-# Licensed under the Apache License, Version 2.0
-
 ARG BASE_IMAGE=rocm/dev-ubuntu-22.04
 FROM ${BASE_IMAGE}
 
