@@ -19,7 +19,7 @@ Welcome to Project MONAI for AMD ROCm&trade;! We're excited you're here and want
 
 We are happy to talk with you about your needs for MONAI for AMD ROCm&trade; and your ideas for contributing to the project. One way to do this is to create an issue discussing your thoughts. It might be that a very similar feature is under development or already exists, so an issue is a great starting point. If you are looking for an issue to resolve that will help Project MONAI, see the [*good first issue*](https://github.com/ROCm-LS/MONAI/labels/good%20first%20issue) and [*Contribution wanted*](https://github.com/ROCm-LS/MONAI/labels/Contribution%20wanted) labels.
 
-### Does it belong in PyTorch for AMD ROCm(TM) instead of MONAI for AMD ROCm(TM)?
+### Does it belong in PyTorch for AMD ROCm&trade; instead of MONAI for AMD ROCm&trade;?
 
 MONAI for AMD ROCm&trade; is mainly based on the PyTorch for [AMD ROCm&trade;](https://pytorch.org/blog/pytorch-for-amd-rocm-platform-now-available-as-python-package/) and Numpy libraries. These libraries implement what we consider to be best practice for general scientific computing and deep learning functionality. MONAI for AMD ROCm&trade; builds on these with a strong focus on medical applications. As such, it is a good idea to consider whether your functionality is medical-application specific or not. General deep learning functionality may be better off in PyTorch for AMD ROCm&trade;; you can find their contribution guidelines [here](https://pytorch.org/docs/stable/community/contribution_guide.html).
 
