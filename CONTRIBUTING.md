@@ -244,7 +244,7 @@ By making a contribution to this project, I certify that:
 ```
 
 #### Utility functions
-MONAI for AMD ROCm(TM) provides a set of generic utility functions and frequently used routines.
+MONAI for AMD ROCm&trade; provides a set of generic utility functions and frequently used routines.
 These are located in [``monai/utils``](./monai/utils/) and in the module folders such as [``networks/utils.py``](./monai/networks/).
 Users are encouraged to use these common routines to improve code readability and reduce the code maintenance burdens.
 
