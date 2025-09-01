@@ -10,57 +10,67 @@
 # limitations under the License.
 
 # To build with a different base image
-# please run `docker build` using the `--build-arg PYTORCH_IMAGE=...` flag.
-ARG PYTORCH_IMAGE=nvcr.io/nvidia/pytorch:24.10-py3
-FROM ${PYTORCH_IMAGE}
 
-LABEL maintainer="monai.contact@gmail.com"
+# Copyright (c) MONAI Consortium
+# Licensed under the Apache License, Version 2.0
 
-# TODO: remark for issue [revise the dockerfile](https://github.com/zarr-developers/numcodecs/issues/431)
-RUN if [[ $(uname -m) =~ "aarch64" ]]; then \
-      export CFLAGS="-O3" && \
-      export DISABLE_NUMCODECS_SSE2=true && \
-      export DISABLE_NUMCODECS_AVX2=true && \
-      pip install numcodecs; \
-    fi
+ARG BASE_IMAGE=rocm/dev-ubuntu-22.04
+FROM ${BASE_IMAGE}
 
-WORKDIR /opt/monai
+# Copy MONAI source code
+RUN cd ..
+COPY . /monai 
 
-# install full deps
-COPY requirements.txt requirements-min.txt requirements-dev.txt /tmp/
-RUN cp /tmp/requirements.txt /tmp/req.bak \
-  && awk '!/torch/' /tmp/requirements.txt > /tmp/tmp && mv /tmp/tmp /tmp/requirements.txt \
-  && python -m pip install --upgrade --no-cache-dir pip \
-  && python -m pip install --no-cache-dir -r /tmp/requirements-dev.txt
+WORKDIR /monai
+RUN ls -l /monai
+RUN ls -l requirements-dev.txt amd-constraints.txt
+# Set environment variables
 
-# compile ext and remove temp files
-# TODO: remark for issue [revise the dockerfile #1276](https://github.com/Project-MONAI/MONAI/issues/1276)
-# please specify exact files and folders to be copied -- else, basically always, the Docker build process cannot cache
-# this or anything below it and always will build from at most here; one file change leads to no caching from here on...
-
-COPY LICENSE CHANGELOG.md CODE_OF_CONDUCT.md CONTRIBUTING.md README.md versioneer.py setup.py setup.cfg runtests.sh MANIFEST.in ./
-COPY tests ./tests
-COPY monai ./monai
-
-# TODO: remove this line and torch.patch for 24.11
-RUN patch -R -d /usr/local/lib/python3.10/dist-packages/torch/onnx/ < ./monai/torch.patch
-
-RUN BUILD_MONAI=1 FORCE_CUDA=1 python setup.py develop \
-  && rm -rf build __pycache__
-
-# NGC Client
-WORKDIR /opt/tools
-ARG NGC_CLI_URI="https://ngc.nvidia.com/downloads/ngccli_linux.zip"
-RUN wget -q ${NGC_CLI_URI} && unzip ngccli_linux.zip && chmod u+x ngc-cli/ngc && \
-    find ngc-cli/ -type f -exec md5sum {} + | LC_ALL=C sort | md5sum -c ngc-cli.md5 && \
-    rm -rf ngccli_linux.zip ngc-cli.md5
-ENV PATH=${PATH}:/opt/tools:/opt/tools/ngc-cli
-RUN apt-get update \
-  && DEBIAN_FRONTEND="noninteractive" apt-get install -y libopenslide0  \
-  && rm -rf /var/lib/apt/lists/*
-# append /opt/tools to runtime path for NGC CLI to be accessible from all file system locations
-ENV PATH=${PATH}:/opt/tools
-ENV POLYGRAPHY_AUTOINSTALL_DEPS=1
+# ENV VENV_FOLDER=/monai-build-venv
+ENV AMDGPU_TARGETS="gfx942"
+# ENV PATH="${VENV_FOLDER}/bin:$PATH"
 
 
-WORKDIR /opt/monai
+# Install dependencies
+RUN apt update && \
+    apt install -y software-properties-common lsb-release gnupg && \
+    apt-key adv --fetch-keys https://apt.kitware.com/keys/kitware-archive-latest.asc && \
+    add-apt-repository -y "deb https://apt.kitware.com/ubuntu/ $(lsb_release -cs) main" && \
+    apt update && \
+    apt install -y git wget gcc g++ ninja-build git-lfs \
+                   yasm libopenslide-dev python3.10 python3.10-venv \
+                   cmake rocjpeg rocjpeg-dev rocthrust-dev \
+                   hipcub hipblas hipblas-dev hipfft hipsparse \
+                   hiprand rocsolver rocrand-dev rocm-hip-sdk
+
+
+
+
+# Configure git
+RUN git config --global --add safe.directory /monai
+
+# Create virtual environment
+# RUN python3 -m venv /monai_dev
+
+# Activate and use the virtual environment (use full path for pip/python)
+ENV VENV_FOLDER=/monai_dev
+ENV PATH="$VENV_ENV/bin:$PATH"
+
+# Set up Python virtual environment and install dependencies
+RUN python3.10 -m venv ${VENV_FOLDER} && \
+    ${VENV_FOLDER}/bin/pip install --upgrade pip setuptools wheel && \
+    ${VENV_FOLDER}/bin/pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/rocm6.4 && \
+    ${VENV_FOLDER}/bin/pip install amd-hipcim --extra-index-url=https://pypi.amd.com/simple && \
+    ${VENV_FOLDER}/bin/pip install -r requirements-dev.txt -c amd-constraints.txt
+
+# Build MONAI from source
+RUN export BUILD_MONAI=1 && \
+    export FORCE_CUDA=1 && \
+    ${VENV_FOLDER}/bin/python3 setup.py develop -O1 && \
+    ${VENV_FOLDER}/bin/python3 setup.py bdist_wheel
+    
+
+RUN ${VENV_FOLDER}/bin/python3 -c "import torch; print('Torch version:', torch.__version__)"
+RUN ${VENV_FOLDER}/bin/python3 -c "import torch; print('GPU available:', torch.cuda.is_available())"
+RUN ${VENV_FOLDER}/bin/python3 -c "import cupy; print('amd cupy version:', cupy.__version__)"
+RUN ${VENV_FOLDER}/bin/python3 -c "import monai; print('monai version:', monai.__version__)"
