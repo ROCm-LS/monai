@@ -71,6 +71,6 @@ RUN export BUILD_MONAI=1 && \
     
 
 RUN ${VENV_FOLDER}/bin/python3 -c "import torch; print('Torch version:', torch.__version__)"
-RUN ${VENV_FOLDER}/bin/python3 -c "import torch; print('GPU available:', torch.cuda.is_available())"
+# RUN ${VENV_FOLDER}/bin/python3 -c "import torch; print('GPU available:', torch.cuda.is_available())"
 RUN ${VENV_FOLDER}/bin/python3 -c "import cupy; print('amd cupy version:', cupy.__version__)"
 RUN ${VENV_FOLDER}/bin/python3 -c "import monai; print('monai version:', monai.__version__)"
