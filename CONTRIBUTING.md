@@ -91,7 +91,7 @@ If you intend for any variables/functions/classes to be available outside of the
 - Add to the `__init__.py` file.
 
 #### Unit testing
-MONAI for AMD ROCm(TM) tests are located under `tests/`.
+MONAI for AMD ROCm&trade; tests are located under `tests/`.
 
 - The unit test's file name currently follows `test_[module_name].py` or `test_[module_name]_dist.py`.
 - The `test_[module_name]_dist.py` subset of unit tests requires a distributed environment to verify the module with distributed GPU-based computation.
