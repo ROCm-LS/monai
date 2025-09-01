@@ -17,18 +17,13 @@
 ARG BASE_IMAGE=rocm/dev-ubuntu-22.04
 FROM ${BASE_IMAGE}
 
-# Copy MONAI source code
-RUN cd ..
 COPY . /monai 
 
 WORKDIR /monai
 RUN ls -l /monai
 RUN ls -l requirements-dev.txt amd-constraints.txt
-# Set environment variables
 
-# ENV VENV_FOLDER=/monai-build-venv
 ENV AMDGPU_TARGETS="gfx942"
-# ENV PATH="${VENV_FOLDER}/bin:$PATH"
 
 
 # Install dependencies
@@ -46,15 +41,10 @@ RUN apt update && \
 
 
 
-# Configure git
 RUN git config --global --add safe.directory /monai
 
-# Create virtual environment
-# RUN python3 -m venv /monai_dev
-
-# Activate and use the virtual environment (use full path for pip/python)
 ENV VENV_FOLDER=/monai_dev
-ENV PATH="$VENV_ENV/bin:$PATH"
+ENV PATH="$VENV_FOLDER/bin:$PATH"
 
 # Set up Python virtual environment and install dependencies
 RUN python3.10 -m venv ${VENV_FOLDER} && \
