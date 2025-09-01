@@ -1,4 +1,4 @@
-# Copyright (c) MONAI Consortium
+# Copyright (c) 2025, AMD CORPORATION. All rights reserved.
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
@@ -11,7 +11,7 @@
 
 # To build with a different base image
 
-# Copyright (c) MONAI Consortium
+# Copyright (c) 2025, AMD CORPORATION. All rights reserved.
 # Licensed under the Apache License, Version 2.0
 
 ARG BASE_IMAGE=rocm/dev-ubuntu-22.04
@@ -25,21 +25,17 @@ RUN ls -l requirements-dev.txt amd-constraints.txt
 
 ENV AMDGPU_TARGETS="gfx942"
 
-
 # Install dependencies
-RUN apt update && \
-    apt install -y software-properties-common lsb-release gnupg && \
+RUN apt-get update && \
+    apt-get install -y software-properties-common lsb-release gnupg && \
     apt-key adv --fetch-keys https://apt.kitware.com/keys/kitware-archive-latest.asc && \
     add-apt-repository -y "deb https://apt.kitware.com/ubuntu/ $(lsb_release -cs) main" && \
-    apt update && \
-    apt install -y git wget gcc g++ ninja-build git-lfs \
+    apt-get update && \
+    apt-get install -y git wget gcc g++ ninja-build git-lfs \
                    yasm libopenslide-dev python3.10 python3.10-venv \
                    cmake rocjpeg rocjpeg-dev rocthrust-dev \
                    hipcub hipblas hipblas-dev hipfft hipsparse \
                    hiprand rocsolver rocrand-dev rocm-hip-sdk
-
-
-
 
 RUN git config --global --add safe.directory /monai
 
@@ -59,8 +55,6 @@ RUN export BUILD_MONAI=1 && \
     ${VENV_FOLDER}/bin/python3 setup.py develop -O1 && \
     ${VENV_FOLDER}/bin/python3 setup.py bdist_wheel
     
-
 RUN ${VENV_FOLDER}/bin/python3 -c "import torch; print('Torch version:', torch.__version__)"
-# RUN ${VENV_FOLDER}/bin/python3 -c "import torch; print('GPU available:', torch.cuda.is_available())"
 RUN ${VENV_FOLDER}/bin/python3 -c "import cupy; print('amd cupy version:', cupy.__version__)"
 RUN ${VENV_FOLDER}/bin/python3 -c "import monai; print('monai version:', monai.__version__)"
