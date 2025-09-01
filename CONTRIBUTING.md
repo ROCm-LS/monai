@@ -26,7 +26,7 @@ We are happy to talk with you about your needs for MONAI for AMD ROCm(TM) and yo
 
 ### Does it belong in PyTorch for AMD ROCm(TM) instead of MONAI for AMD ROCm(TM)?
 
-MONAI for AMD ROCm(TM) is part of [ PyTorch for AMD ROCm(TM)](https://pytorch.org/blog/pytorch-for-amd-rocm-platform-now-available-as-python-package/), and mainly based on the PyTorch for AMD ROCm(tm) and Numpy libraries. These libraries implement what we consider to be best practice for general scientific computing and deep learning functionality. MONAI for AMD ROCm(TM) builds on these with a strong focus on medical applications. As such, it is a good idea to consider whether your functionality is medical-application specific or not. General deep learning functionality may be better off in PyTorch for AMD ROCm(TM); you can find their contribution guidelines [here](https://pytorch.org/docs/stable/community/contribution_guide.html).
+MONAI for AMD ROCm&trade; is mainly based on the PyTorch for [AMD ROCm&trade;](https://pytorch.org/blog/pytorch-for-amd-rocm-platform-now-available-as-python-package/) and Numpy libraries. These libraries implement what we consider to be best practice for general scientific computing and deep learning functionality. MONAI for AMD ROCm&trade; builds on these with a strong focus on medical applications. As such, it is a good idea to consider whether your functionality is medical-application specific or not. General deep learning functionality may be better off in PyTorch for AMD ROCm&trade;; you can find their contribution guidelines [here](https://pytorch.org/docs/stable/community/contribution_guide.html).
 
 ## The contribution process
 
