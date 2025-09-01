@@ -188,7 +188,7 @@ cases when running in a minimal setup.
 
 
 #### Signing your work
-MONAI for AMD ROCm(TM) enforces the [Developer Certificate of Origin](https://developercertificate.org/) (DCO) on all pull requests.
+MONAI for AMD ROCm&trade; enforces the [Developer Certificate of Origin](https://developercertificate.org/) (DCO) on all pull requests.
 All commit messages should contain the `Signed-off-by` line with an email address. The [GitHub DCO app](https://github.com/apps/dco) is deployed on MONAI. The pull request's status will be `failed` if commits do not contain a valid `Signed-off-by` line.
 
 Git has a `-s` (or `--signoff`) command-line option to append this automatically to your commit message:
