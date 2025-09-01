@@ -118,7 +118,7 @@ or (for new features that would not break existing functionality):
 ```
 
 #### Building the documentation
-MONAI for AMD ROCm(TM)'s documentation is located at `docs/`.
+MONAI for AMD ROCm&trade;'s documentation is located at `docs/`.
 
 ```bash
 # install the doc-related dependencies
