@@ -145,7 +145,7 @@ Please type `make help` in `docs/` folder for all supported format options.
 
 
 #### Adding new optional dependencies
-In addition to the minimal requirements of PyTorch for AMD ROCm(TM) and Numpy, MONAI for AMD ROCm(TM)'s core modules are built optionally based on 3rd-party packages.
+In addition to the minimal requirements of PyTorch for AMD ROCm&trade; and Numpy, MONAI for AMD ROCm&trade;'s core modules are built optionally based on 3rd-party packages.
 The current set of dependencies is listed in [installing dependencies](https://docs.monai.io/en/stable/installation.html#installing-the-recommended-dependencies).
 
 To allow for flexible integration of MONAI for AMD ROCm(TM) with other systems and environments,
