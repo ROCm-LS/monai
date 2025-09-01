@@ -4,16 +4,11 @@
     1. [Checking the coding style](#checking-the-coding-style)
     1. [Unit testing](#unit-testing)
     1. [Building the documentation](#building-the-documentation)
-    1. [Automatic code formatting](#automatic-code-formatting)
     1. [Adding new optional dependencies](#adding-new-optional-dependencies)
     1. [Signing your work](#signing-your-work)
     1. [Utility functions](#utility-functions)
-    1. [Backwards compatibility](#backwards-compatibility)
   * [Submitting pull requests](#submitting-pull-requests)
-- [The code reviewing process (for the maintainers)](#the-code-reviewing-process)
-  * [Reviewing pull requests](#reviewing-pull-requests)
-- [Admin tasks (for the maintainers)](#admin-tasks)
-  * [Releasing a new version](#release-a-new-version)
+
 
 ## Introduction
 
