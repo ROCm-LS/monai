@@ -18,7 +18,7 @@
 ## Introduction
 
 
-Welcome to Project MONAI for AMD ROCm(TM)! We're excited you're here and want to contribute. This documentation is intended for individuals and institutions interested in contributing to MONAI for AMD ROCm(TM). MONAI for AMD ROCm(TM) is an open-source project and, as such, its success relies on its community of contributors willing to keep improving it. Your contribution will be a valued addition to the code base; we simply ask that you read this page and understand our contribution process, whether you are a seasoned open-source contributor or whether you are a first-time contributor.
+Welcome to Project MONAI for AMD ROCm&trade;! We're excited you're here and want to contribute. This documentation is intended for individuals and institutions interested in contributing to MONAI for AMD ROCm&trade;. MONAI for AMD ROCm&trade; is an open-source project and, as such, its success relies on its community of contributors willing to keep improving it. Your contribution will be a valued addition to the code base; we simply ask that you read this page and understand our contribution process, whether you are a seasoned open-source contributor or whether you are a first-time contributor.
 
 ### Communicate with us
 
