@@ -82,7 +82,7 @@ class TestPerceptualLoss(unittest.TestCase):
         import inspect
         param_index = inspect.currentframe().f_locals.get('parameterized', {}).get('idx', None)
         if getattr(self, "_testMethodName", "") in ["test_shape_02", "test_shape_03", "test_shape_04","test_shape_05","test_shape_06","test_shape_07","test_shape_08","test_shape_09"]:
-            self.skipTest(f"Skipping {self._testMethodName} due to error")
+            self.skipTest(f"Skipping {self._testMethodName} due to known issue")
         with skip_if_downloading_fails():
             loss = PerceptualLoss(**input_param)
         result = loss(torch.randn(input_shape), torch.randn(target_shape))
@@ -97,7 +97,7 @@ class TestPerceptualLoss(unittest.TestCase):
         import inspect
         param_index = inspect.currentframe().f_locals.get('parameterized', {}).get('idx', None)
         if getattr(self, "_testMethodName", "") in ["test_identical_input_02", "test_identical_input_03", "test_identical_input_04","test_identical_input_05","test_identical_input_06","test_identical_input_07","test_identical_input_08","test_identical_input_09"]:
-            self.skipTest(f"Skipping {self._testMethodName} due to error")
+            self.skipTest(f"Skipping {self._testMethodName} due to known issue")
         with skip_if_downloading_fails():
             loss = PerceptualLoss(**input_param)
         tensor = torch.randn(input_shape)
