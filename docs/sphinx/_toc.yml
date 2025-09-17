@@ -12,7 +12,6 @@ subtrees:
 - caption: Reference
   entries:
   - file: reference/support-limitations
-    title: Supported functionalities
 
 - caption: About
   entries:
