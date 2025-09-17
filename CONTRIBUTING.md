@@ -70,7 +70,7 @@ Full linting and type checking may take some time. If you need a quick check, ru
 All source code files should start with this paragraph:
 
 ```
-# Copyright (c) 2025, AMD CORPORATION.  All rights reserved.
+# Copyright © Advanced Micro Devices, Inc., or its affiliates.
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
