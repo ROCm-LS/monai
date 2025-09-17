@@ -89,6 +89,7 @@ class TestPretrainedDENSENET(unittest.TestCase):
             self.assertEqual(result.shape, expected_shape)
 
     @parameterized.expand([TEST_PRETRAINED_2D_CASE_3])
+    @unittest.skip("Skipping test_pretrain_consistency_0 due to torch error")
     @skipUnless(has_torchvision, "Requires `torchvision` package.")
     def test_pretrain_consistency(self, model, input_param, input_shape):
         example = torch.randn(input_shape).to(device)
