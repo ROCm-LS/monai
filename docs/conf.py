@@ -5,6 +5,11 @@
 # https://www.sphinx-doc.org/en/master/usage/configuration.html
 
 import re
+import sys
+from pathlib import Path
+
+sys.path.append(str(Path(__file__).resolve().parent.parent))
+
 
 '''
 html_theme is usually unchanged (rocm_docs_theme).
@@ -24,7 +29,7 @@ all_article_info_author = ""
 version_number = "1.0.0"
 
 # for PDF output on Read the Docs
-project = "MONAI"
+project = "MONAI 1.0.0 for AMD ROCm"
 author = "Advanced Micro Devices, Inc."
 copyright = "Copyright (c) 2025 Advanced Micro Devices, Inc. All rights reserved."
 version = version_number
@@ -37,6 +42,7 @@ extensions = [
     "breathe",
     "sphinx.ext.intersphinx",
     "sphinx.ext.autodoc",  # Automatically create API documentation from Python docstrings
+    "sphinx.ext.autosummary",
     "sphinx.ext.doctest",
     "sphinx_copybutton",
 ]
@@ -51,6 +57,6 @@ autodoc_default_options = {
     "member-order": "bysource",  # bysource: seems unfortunately not to work for Cython modules
 }
 
-html_title = f"{project} {version_number} documentation"
+html_title = f"{project} documentation"
 
-external_projects_current_project = "MONAI"
+external_projects_current_project = "MONAI for AMD ROCm"

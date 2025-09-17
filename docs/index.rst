@@ -1,18 +1,37 @@
 .. meta::
-  :description: The hipCIM library is a robust open-source solution developed to significantly accelerate computer vision and image processing capabilities
-  :keywords: ROCm-LS, life sciences, hipCIM documentation
+  :description: MONAI is a domain-optimized, open-source framework based on PyTorch, designed specifically for deep learning in healthcare imaging.
+  :keywords: ROCm-LS, life sciences, MONAI for AMD ROCm documentation, MONAI for AMD ROCm document
 
 .. _index:
 
-*********************
-MONAI documentation
-*********************
+*********************************
+MONAI for AMD ROCm documentation
+*********************************
 
-AMD is excited to introduce MONAI 1.0.0 for AMD ROCm™, now available through the ROCm-LS early access release. MONAI (Medical Open Network for AI) is a domain-optimized, open-source framework based on PyTorch, designed specifically for deep learning in healthcare imaging.
+.. note::
 
-This ROCm-enabled release of MONAI is built on top of PyTorch for AMD ROCm™, enabling healthcare and life sciences innovators to leverage GPU acceleration with AMD Instinct™ GPUs for high-performance inference and training of medical AI applications.
+  MONAI 1.0.0 for AMD ROCm is in an early access state. Running production workloads is not recommended.
 
-This release marks a significant milestone in AMD’s ongoing commitment to enabling life science and healthcare workloads with open, scalable, and high-performance solutions.
+MONAI (Medical Open Network for AI) for AMD ROCm is a HIP port of upstream `MONAI <https://monai.io/>`_.
+MONAI is a domain-optimized, open-source framework based on PyTorch, designed specifically for deep learning in healthcare imaging.
+
+This ROCm-enabled release of MONAI viz. MONAI for AMD ROCm is built on top of `PyTorch for AMD ROCm <https://pytorch.org/blog/pytorch-for-amd-rocm-platform-now-available-as-python-package/>`_, helping healthcare and life science innovators to leverage GPU acceleration with AMD Instinct GPUs for high-performance inference and training of medical AI applications.
+
+MONAI for AMD ROCm offers open, scalable, and high-performance solutions for life science and healthcare workloads.
+
+The MONAI for AMD ROCm key features include:
+
+- Flexible preprocessing for multidimensional medical imaging data
+
+- Compositional and portable APIs for smooth integration into existing workflows
+
+- Domain-specific implementations for networks, losses, evaluation metrics, and more
+
+- Customizable design according to user expertise
+
+- Multi-GPU multi-node data parallelism support
+
+The code is open and hosted at `<https://github.com/ROCm-LS/monai>`_.
 
 The documentation is structured as follows:
 
@@ -21,10 +40,14 @@ The documentation is structured as follows:
 
   .. grid-item-card:: Install
 
-    * :ref:`installing-monai`
+    * :ref:`Installation <installing-monai>`
 
-To contribute to the documentation, refer to
-`Contributing to ROCm-LS <https://rocm.docs.amd.com/projects/rocm-ls/en/latest/contribute/contribution.html>`_.
+  .. grid-item-card:: Reference
+
+    * :ref:`monai-features`
+
+To contribute to MONAI for AMD ROCm, refer to
+`Contributing to MONAI for AMD ROCm <https://github.com/ROCm-LS/MONAI/blob/dev/CONTRIBUTING.md>`_.
 
 You can find licensing information on the
 :doc:`Licensing <license>` page.
