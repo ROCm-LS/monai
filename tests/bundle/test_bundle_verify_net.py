@@ -48,7 +48,7 @@ class TestVerifyNetwork(unittest.TestCase):
     @unittest.skip("Skipped due to inconsistent results with multiple GPUs")
     def test_verify_fp16(self, meta_file, config_file):
         if getattr(self, "_testMethodName", "") == "test_verify_fp16_0__tests_testing_data_metadata_json":
-            self.skipTest("Skipping test_verify_fp16_0 due to error")
+            self.skipTest("Skipping test_verify_fp16_0 due to inconsistent results")
         with tempfile.TemporaryDirectory() as tempdir:
             def_args = {"meta_file": "will be replaced by `meta_file` arg", "p": 2}
             def_args_file = os.path.join(tempdir, "def_args.json")
