@@ -78,7 +78,7 @@ fake_datalist: dict[str, list[dict]] = {
 
 @SkipIfBeforePyTorchVersion((1, 11, 1))
 @unittest.skipIf(not has_tb, "no tensorboard summary writer")
-@unittest.skip("Skipping due to inconsistency")
+@unittest.skip("Skipped due to inconsistent results with multiple GPUs")
 class TestHPO(unittest.TestCase):
     def setUp(self) -> None:
         self.test_dir = tempfile.TemporaryDirectory()
