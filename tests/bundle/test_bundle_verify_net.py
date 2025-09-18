@@ -45,7 +45,7 @@ class TestVerifyNetwork(unittest.TestCase):
 
     @parameterized.expand([TEST_CASE_1])
     @skip_if_no_cuda
-    @unittest.skip("skipping due to inconsistency")
+    @unittest.skip("skipping due to inconsistent results with multiple GPUs")
     def test_verify_fp16(self, meta_file, config_file):
         if getattr(self, "_testMethodName", "") == "test_verify_fp16_0__tests_testing_data_metadata_json":
             self.skipTest("Skipping test_verify_fp16_0 due to error")
