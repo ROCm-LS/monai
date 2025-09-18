@@ -33,7 +33,6 @@ TEST_CASE_1 = [
 class TestVerifyNetwork(unittest.TestCase):
     @parameterized.expand([TEST_CASE_1])
     def test_verify(self, meta_file, config_file):
-       
         with tempfile.TemporaryDirectory() as tempdir:
             def_args = {"meta_file": "will be replaced by `meta_file` arg", "p": 2}
             def_args_file = os.path.join(tempdir, "def_args.json")

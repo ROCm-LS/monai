@@ -154,7 +154,7 @@ class TestGradientClassActivationMap(unittest.TestCase):
         import inspect
         param_index = inspect.currentframe().f_locals.get('parameterized', {}).get('idx', None)
         if getattr(self, "_testMethodName", "") in ["test_shape_00","test_shape_01", "test_shape_04","test_shape_05","test_shape_08","test_shape_09","test_shape_10","test_shape_13","test_shape_14", "test_shape_17"]:
-            self.skipTest(f"Skipping {self._testMethodName} as requested")
+            self.skipTest(f"Skipping {self._testMethodName} due to known issue")
         model = None
 
         if input_data["model"] == "densenet2d":
