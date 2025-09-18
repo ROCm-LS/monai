@@ -122,7 +122,22 @@ To install MONAI for AMD ROCm using package manager, follow the steps given in t
          -v $HOME:$HOME  --name ${LOGNAME}_rocm                \
                                            rocm/dev-ubuntu-22.04
 
-2. Create and activate the development environment
+2. Install required system dependencies
+
+   .. code-block:: shell
+
+      sudo apt update
+      sudo apt install -y software-properties-common lsb-release gnupg
+      sudo apt-key adv --fetch-keys https://apt.kitware.com/keys/kitware-archive-latest.asc
+      sudo add-apt-repository -y "deb https://apt.kitware.com/ubuntu/ $(lsb_release -cs) main"
+      sudo apt update
+      sudo apt install -y git wget gcc g++ ninja-build git-lfs       \
+                        yasm libopenslide-dev python3.10-venv        \
+                        cmake rocjpeg rocjpeg-dev rocthrust-dev      \
+                        hipcub hipblas hipblas-dev hipfft hipsparse  \
+                        hiprand rocsolver rocrand-dev rocm-hip-sdk
+
+3. Create and activate the development environment
 
    .. code-block:: shell
 
@@ -130,14 +145,14 @@ To install MONAI for AMD ROCm using package manager, follow the steps given in t
       source monai_dev/bin/activate
       pip install --upgrade pip
 
-3. Install the required Python dependencies
+4. Install the required Python dependencies
 
    .. code-block:: shell
 
       pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/rocm6.4
       pip install amd-hipcim --extra-index-url=https://pypi.amd.com/simple
 
-4. Install optional dependencies depending on the workload
+5. Install optional dependencies depending on the workload
 
    .. code-block:: shell
 
@@ -145,7 +160,7 @@ To install MONAI for AMD ROCm using package manager, follow the steps given in t
             pynrrd clearml transformers pydicom fire ignite         \
             parameterized tensorboard pytorch-ignite onnx
 
-5. Install MONAI for AMD ROCm
+6. Install MONAI for AMD ROCm
 
    Install MONAI optimized for AMD Instinct GPUs from the AMD PyPi repository:
 
