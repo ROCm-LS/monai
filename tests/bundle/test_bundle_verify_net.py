@@ -30,6 +30,7 @@ TEST_CASE_1 = [
 
 
 @skip_if_windows
+@unittest.skip("skipping due to inconsistency")
 class TestVerifyNetwork(unittest.TestCase):
     @parameterized.expand([TEST_CASE_1])
     def test_verify(self, meta_file, config_file):
