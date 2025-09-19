@@ -29,7 +29,7 @@ Prerequisites
 
 - NumPy >=1.24,<3.0
 
-For more information on dependencies, see the ``requirements*.txt`` file.
+For more information about dependencies, see the ``requirements*.txt`` file.
 
 .. _source-install:
 
