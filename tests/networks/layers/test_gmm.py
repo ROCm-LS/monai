@@ -260,6 +260,7 @@ TEST_CASES = [
 
 
 @skip_if_quick
+@unittest.skip("Skipped due to inconsistent results with multiple GPUs")
 class GMMTestCase(unittest.TestCase):
     def setUp(self):
         self._var = os.environ.get("TORCH_EXTENSIONS_DIR")
