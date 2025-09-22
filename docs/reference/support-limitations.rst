@@ -47,6 +47,22 @@ Here are the MONAI for AMD ROCm features:
 
   - Compatible with CuPy and other GPU-accelerated libraries
 
+- Optimized for 3D medical imaging
+
+  - Supports CT, MRI, Ultrasound, and other volumetric modalities with domain-specific optimizations
+
+- Prebuilt training pipelines optimized for AMD Instinct GPUs
+
+  - Supports segmentation, classification, and detection tasks, reducing setup overhead
+
+- Model Zoo with pretrained models
+
+  - Provides access to a wide collection of pretrained models from the `MONAI Model Zoo <https://github.com/Project-MONAI/model-zoo>`_, ready for fine-tuning on custom datasets
+
+  - Examples include UNet, SegResNet, SwinUNETR, and various organ-specific models
+
+  - Utilizing the `MONAI Bundle format <https://docs.monai.io/en/latest/bundle_intro.html>`_ makes it easy to `get started <https://github.com/Project-MONAI/tutorials/tree/main/model_zoo>`_ on building workflows with MONAI.
+
 Limitations
 ------------
 
