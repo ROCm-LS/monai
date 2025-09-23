@@ -10,12 +10,12 @@ Installing MONAI for AMD ROCm
 
 This topic discusses how to install MONAI for AMD ROCm using the following options:
 
-- From source (for developers)
+- :ref:`From source (for developers) <source-install>`
 
-- Using package manager (for users)
+- :ref:`Using package manager (for users) <package-install>`
 
-Prerequisites
---------------
+System requirements
+--------------------
 
 - Ubuntu version: 22.04 or later
 
@@ -36,21 +36,20 @@ For more information about dependencies, see the ``requirements*.txt`` file.
 Installing from source
 -----------------------
 
-To build MONAI for AMD ROCm from source, follow the steps given in this section. This installation method should be used by MONAI for AMD ROCm developers. MONAI for AMD ROCm users should use the :ref:`package-install`.
+To build MONAI for AMD ROCm from source, follow the steps given in this section. This installation method should be used by MONAI for AMD ROCm developers. If you're a MONAI for AMD ROCm user, see :ref:`package-install`.
 
-1. Set up the Docker image
-
-   Use the ROCm Docker image from Dockerhub:
+1. Set up the Docker image using ROCm Docker image from Dockerhub.
 
    .. code-block:: shell
 
+      docker pull rocm/dev-ubuntu-22.04
       docker run --cap-add=SYS_PTRACE --ipc=host --privileged=true   \
          --shm-size=512GB --network=host --device=/dev/kfd     \
          --device=/dev/dri --group-add video -it               \
          -v $HOME:$HOME  --name ${LOGNAME}_monai               \
                                            rocm/dev-ubuntu-22.04
 
-2. Install the required system dependencies
+2. Install the required system dependencies.
 
    .. code-block:: shell
 
@@ -65,7 +64,7 @@ To build MONAI for AMD ROCm from source, follow the steps given in this section.
                   hipcub hipblas hipblas-dev hipfft hipsparse  \
                   hiprand rocsolver rocrand-dev rocm-hip-sdk
 
-3. Download the MONAI for AMD ROCm repository
+3. Download the MONAI for AMD ROCm repository.
 
    Checkout the latest version of MONAI for AMD ROCm from the git repository:
 
@@ -74,7 +73,7 @@ To build MONAI for AMD ROCm from source, follow the steps given in this section.
       git clone git@github.com:ROCm-LS/monai.git
       cd monai
 
-4. Create and activate the development environment for building MONAI for AMD ROCm
+4. Create and activate the development environment for building MONAI for AMD ROCm.
 
    .. code-block:: shell
 
@@ -86,7 +85,7 @@ To build MONAI for AMD ROCm from source, follow the steps given in this section.
       pip install amd-hipcim --extra-index-url=https://pypi.amd.com/simple
       pip install -r requirements-dev.txt -c amd-constraints.txt
 
-5. Build and install MONAI for AMD ROCm on a ROCm based AMD system using the development environment
+5. Build and install MONAI for AMD ROCm on a ROCm based AMD system using the development environment.
 
    To build and install the development version of MONAI for AMD ROCm, use:
 
@@ -107,11 +106,9 @@ To build MONAI for AMD ROCm from source, follow the steps given in this section.
 Installing using package manager
 ----------------------------------
 
-To install MONAI for AMD ROCm using package manager, follow the steps given in this section. This installation method should be used by MONAI for AMD ROCm users. MONAI for AMD ROCm developers should use the :ref:`source-install`
+To install MONAI for AMD ROCm using package manager, follow the steps given in this section. This installation method should be used by MONAI for AMD ROCm users. If you're a MONAI for AMD ROCm developer, see :ref:`source-install`
 
-1. Set up the Docker image
-
-   Use the ROCm Docker image from Dockerhub:
+1. Set up the Docker image using ROCm Docker image from Dockerhub.
 
    .. code-block:: shell
 
@@ -122,7 +119,7 @@ To install MONAI for AMD ROCm using package manager, follow the steps given in t
          -v $HOME:$HOME  --name ${LOGNAME}_rocm                \
                                            rocm/dev-ubuntu-22.04
 
-2. Install required system dependencies
+2. Install the required system dependencies.
 
    .. code-block:: shell
 
@@ -137,7 +134,7 @@ To install MONAI for AMD ROCm using package manager, follow the steps given in t
                         hipcub hipblas hipblas-dev hipfft hipsparse  \
                         hiprand rocsolver rocrand-dev rocm-hip-sdk
 
-3. Create and activate the development environment
+3. Create and activate the development environment.
 
    .. code-block:: shell
 
@@ -145,14 +142,14 @@ To install MONAI for AMD ROCm using package manager, follow the steps given in t
       source monai_dev/bin/activate
       pip install --upgrade pip
 
-4. Install the required Python dependencies
+4. Install the required Python dependencies.
 
    .. code-block:: shell
 
       pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/rocm6.4
       pip install amd-hipcim --extra-index-url=https://pypi.amd.com/simple
 
-5. Install optional dependencies depending on the workload
+5. Install the optional dependencies depending on the workload.
 
    .. code-block:: shell
 
@@ -160,9 +157,7 @@ To install MONAI for AMD ROCm using package manager, follow the steps given in t
             pynrrd clearml transformers pydicom fire ignite         \
             parameterized tensorboard pytorch-ignite onnx
 
-6. Install MONAI for AMD ROCm
-
-   Install MONAI optimized for AMD Instinct GPUs from the AMD PyPi repository:
+6. Install MONAI optimized for AMD Instinct GPUs from the AMD PyPi repository.
 
    .. code-block:: shell
 
@@ -171,9 +166,9 @@ To install MONAI for AMD ROCm using package manager, follow the steps given in t
 Verify installation
 --------------------
 
-To ensure that MONAI for AMD ROCm is successfully installed on your system, you can use the following two commands:
+Use these commands to verify the MONAI for AMD ROCm installation:
 
-- Print MONAI for AMD ROCm version
+- Print MONAI for AMD ROCm version.
 
   .. code-block:: shell
 
@@ -181,7 +176,7 @@ To ensure that MONAI for AMD ROCm is successfully installed on your system, you 
 
    1.0.0
 
-- Print MONAI for AMD ROCm package info
+- Print MONAI for AMD ROCm package info.
 
   .. code-block:: shell
 
