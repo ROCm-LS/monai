@@ -29,9 +29,7 @@ The MONAI for AMD ROCm key features include:
 
 - Customizable design according to user expertise
 
-- Multi-GPU multi-node data parallelism support
-
-The code is open and hosted at `<https://github.com/ROCm-LS/monai>`_.
+The code is open and hosted at `<https://github.com/AMD-AIOSS/monai>`_.
 
 The documentation is structured as follows:
 
@@ -46,8 +44,12 @@ The documentation is structured as follows:
 
     * :ref:`monai-features`
 
+  .. grid-item-card:: Related content
+
+    * `MONAI blogs <https://github.com/ROCm/rocm-blogs-internal/blob/dwiddows-1351/blogs/artificial-intelligence/monai-rocm/README.md>`_
+
 To contribute to MONAI for AMD ROCm, refer to
-`Contributing to MONAI for AMD ROCm <https://github.com/ROCm-LS/MONAI/blob/dev/CONTRIBUTING.md>`_.
+`Contributing to MONAI for AMD ROCm <https://github.com/AMD-AIOSS/monai/blob/amd-integration/CONTRIBUTING.md>`_.
 
 You can find licensing information on the
 :doc:`Licensing <license>` page.
