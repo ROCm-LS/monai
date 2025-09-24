@@ -47,7 +47,7 @@ To build MONAI for AMD ROCm from source, follow the steps given in this section.
          --shm-size=512GB --network=host --device=/dev/kfd     \
          --device=/dev/dri --group-add video -it               \
          -v $HOME:$HOME  --name ${LOGNAME}_monai               \
-                                           rocm/dev-ubuntu-22.04
+                                           rocm/dev-ubuntu-22.04:6.4.1
 
 2. Install the required system dependencies.
 
@@ -117,7 +117,7 @@ To install MONAI for AMD ROCm using package manager, follow the steps given in t
          --shm-size=512GB --network=host --device=/dev/kfd     \
          --device=/dev/dri --group-add video -it               \
          -v $HOME:$HOME  --name ${LOGNAME}_rocm                \
-                                           rocm/dev-ubuntu-22.04
+                                           rocm/dev-ubuntu-22.04:6.4.1
 
 2. Install the required system dependencies.
 

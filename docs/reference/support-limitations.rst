@@ -25,15 +25,15 @@ Here are the MONAI for AMD ROCm features:
 
   - Supports hipCIM for pre-processing and post-processing of medical images.
 
-  - Efficient handling of whole-slide imaging (WSI) data through GPU-optimized implementations of color augmentation, spatial transformations, and intensity scaling.
+  - Efficiently handles whole-slide imaging (WSI) data through GPU-optimized implementations of color augmentation, spatial transformations, and intensity scaling.
 
-  - Accelerated transforms, morphological operations, and data augmentation that outperform CPU-only pipelines, particularly in workflows such as whole-slide imaging, patch extraction, and real-time augmentation.
+  - Provides accelerated transforms, morphological operations, and data augmentation that outperform CPU-only pipelines, particularly in workflows such as whole-slide imaging, patch extraction, and real-time augmentation.
 
 - GPU acceleration
 
   - Leverages AMD Instinct GPUs for high-throughput inference.
 
-  - Optimized memory and compute performance for large-scale medical datasets.
+  - Delivers optimized memory and compute performance for large-scale medical datasets.
 
 - Extensibility
 
@@ -57,11 +57,13 @@ Here are the MONAI for AMD ROCm features:
 
 - Model Zoo with pretrained models
 
-  - Provides access to a wide collection of pretrained models from the `MONAI Model Zoo <https://github.com/Project-MONAI/model-zoo>`_, ready for fine-tuning on custom datasets.
+  - Provides access to a wide collection of pretrained models from the `MONAI Model Zoo <https://monai.io/model-zoo.html#/>`_, which is a hub for researchers and data scientists to share, discover, and deploy the latest models from across the biomedical imaging community.
 
-  - Examples include UNet, SegResNet, SwinUNETR, and various organ-specific models.
+  - Facilitates utilizing the `MONAI Bundle format <https://docs.monai.io/en/latest/bundle_intro.html>`_ to easily `get started <https://github.com/Project-MONAI/tutorials/tree/main/model_zoo>`_ on building workflows or integrating new models into your projects.
 
-  - Utilizing the `MONAI Bundle format <https://docs.monai.io/en/latest/bundle_intro.html>`_ makes it easy to `get started <https://github.com/Project-MONAI/tutorials/tree/main/model_zoo>`_ on building workflows with MONAI.
+  - Provides seamless compatibility with the vast majority of models in the Model Zoo, helping both researchers and clinicians to accelerate state-of-the-art AI pipelines directly on AMD Instinct GPUs.
+
+  - Requires minimal setup as segmentation, detection, and classification models including 2D and 3D workflows run out of the box.
 
 Limitations
 ------------
