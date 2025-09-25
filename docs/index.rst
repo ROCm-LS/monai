@@ -12,7 +12,7 @@ MONAI for AMD ROCm documentation
 
   MONAI for AMD ROCm is in an early access state. Running production workloads is not recommended.
 
-MONAI (Medical Open Network for AI) for AMD ROCm is a HIP port of upstream `MONAI <https://monai.io/>`_.
+The Medical Open Network for AI (MONAI) for AMD ROCm is a HIP port of upstream `MONAI <https://monai.io/>`_.
 MONAI is a domain-optimized, open-source framework based on PyTorch, explicitly designed for deep learning in healthcare imaging. It is API-compatibile with upstream MONAI without requiring any code changes.
 
 This ROCm-enabled release of MONAI viz. MONAI for AMD ROCm is built on top of `PyTorch for AMD ROCm <https://pytorch.org/blog/pytorch-for-amd-rocm-platform-now-available-as-python-package/>`_, helping healthcare and life science innovators to leverage GPU acceleration with AMD Instinct GPUs for high-performance inference and training of medical AI applications.
@@ -43,6 +43,7 @@ The documentation is structured as follows:
   .. grid-item-card:: Reference
 
     * :ref:`monai-features`
+    * :ref:`model-zoo`
 
   .. grid-item-card:: Related content
 
