@@ -8,7 +8,7 @@
 Supported features and limitations
 ===================================
 
-MONAI 1.0.0 for AMD ROCm is based on `MONAI upstream version 1.5.0 <https://github.com/Project-MONAI/MONAI/commit/d388d1c6fec8cb3a0eebee5b5a0b9776ca59ca83>`_ and includes the following features.
+MONAI 1.0.0 for AMD ROCm is based on `MONAI upstream version 1.5.0 <https://github.com/Project-MONAI/MONAI/commit/d388d1c6fec8cb3a0eebee5b5a0b9776ca59ca83>`_ and includes the following features and limitations.
 
 Features
 ---------
@@ -57,34 +57,19 @@ Here are the MONAI for AMD ROCm features:
 
 - Model Zoo with pretrained models
 
-  - Provides access to a wide collection of pretrained models from the `MONAI Model Zoo <https://monai.io/model-zoo.html#/>`_, which is a hub for researchers and data scientists to share, discover, and deploy the latest models from across the biomedical imaging community.
+  - Provides access to a wide collection of pretrained models from the `MONAI Model Zoo <https://monai.io/model-zoo.html#/>`_, ready for fine-tuning on custom datasets.
 
   - Facilitates utilizing the `MONAI Bundle format <https://docs.monai.io/en/latest/bundle_intro.html>`_ to easily `get started <https://github.com/Project-MONAI/tutorials/tree/main/model_zoo>`_ on building workflows or integrating new models into your projects.
 
-  - Provides seamless compatibility with the vast majority of models in the Model Zoo, helping both researchers and clinicians to accelerate state-of-the-art AI pipelines directly on AMD Instinct GPUs.
-
-  - Requires minimal setup as segmentation, detection, and classification models including 2D and 3D workflows run out of the box.
+  For more information on Model Zoo, see :ref:`model-zoo`.
 
 Limitations
 ------------
 
-- MONAI for AMD ROCm only supports features from amd-cupy > 13.5.1 and hipCIM >= 1.0.00.
+- MONAI for AMD ROCm only supports features from amd-cupy later than 13.5.1 and hipCIM 1.0.00 and later.
 
 - There is no support for:
 
   - GPU direct storage (KvikIO, cuFile).
 
   - rocTX tracing.
-
-Known issues
--------------
-
-- No support for Python <3.10 and PyTorch <1.13.1.
-
-- Deprecated transforms such as AddChannel, AsChannelFirst, and others.
-
-- Some advanced or rare image file formats and non-NIfTI/DICOM derivatives might not have first-class support.
-
-- Legacy neural network architectures such as deprecated versions of DynUnet and old TorchVision wrappers are not supported.
-
-- Automatic installation of optional dependencies is not available. Some features require explicit installation.
