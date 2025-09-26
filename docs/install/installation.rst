@@ -17,9 +17,9 @@ This topic discusses how to install MONAI for AMD ROCm using the following optio
 System requirements
 --------------------
 
-- Ubuntu version: 22.04 or later
+- Ubuntu version: 22.04
 
-- ROCm version:  6.4.0 or later
+- ROCm version:  6.4.3
 
 - Python version: 3.10
 
