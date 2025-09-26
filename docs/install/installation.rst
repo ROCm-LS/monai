@@ -18,12 +18,12 @@ System requirements
 --------------------
 
 - Ubuntu version: 22.04 or later
-
+''
 - ROCm version:  6.4.0 or later
 
 - Python version: 3.10
 
-- AMD GPU: AMD Instinct MI300 series GPUs (gfx942)
+- AMD GPU: AMD Instinct MI300X GPUs (gfx942)
 
 - `PyTorch for AMD ROCm <https://pytorch.org/blog/pytorch-for-amd-rocm-platform-now-available-as-python-package/>`_ version: 2.8.0+rocm 6.4
 
