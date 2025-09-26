@@ -8,7 +8,7 @@
 Supported features and limitations
 ===================================
 
-MONAI 1.0.0 for AMD ROCm is based on `MONAI upstream version 1.5.0 <https://github.com/Project-MONAI/MONAI/commit/d388d1c6fec8cb3a0eebee5b5a0b9776ca59ca83>`_ and includes the following features and limitations.
+This topic discusses the features and limitations for MONAI 1.0.0 for AMD ROCm.
 
 Features
 ---------
@@ -73,3 +73,13 @@ Limitations
   - GPU direct storage (KvikIO, cuFile).
 
   - rocTX tracing.
+
+- No support for Python earlier than 3.10 and PyTorch earlier than 1.13.1.
+
+- Deprecated transforms such as AddChannel, AsChannelFirst, and others.
+
+- There might not be first-class support for some advanced or rare image file formats and non-NIfTI/DICOM derivatives.
+
+- No support for legacy neural network architectures such as deprecated versions of DynUnet and old TorchVision wrappers.
+
+- Automatic installation of optional dependencies is not available. Some features require explicit installation.
