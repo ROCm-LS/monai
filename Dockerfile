@@ -9,7 +9,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-ARG BASE_IMAGE=rocm/dev-ubuntu-22.04
+ARG BASE_IMAGE=rocm/dev-ubuntu-22.04:6.4.1
 FROM ${BASE_IMAGE}
 
 COPY . /monai 
