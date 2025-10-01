@@ -24,9 +24,9 @@ docs_header_version is used to manually configure the version in the header. If
 there exists a non-null value mapped to docs_header_version, then the header in
 the documentation page will contain the given version string.
 '''
-html_context = {
-    "docs_header_version": "25.09"
-}
+# html_context = {
+#     "docs_header_version": "25.09"
+# }
 
 
 # This section turns on/off article info
