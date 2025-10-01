@@ -38,7 +38,7 @@ Installing from source
 
 To build MONAI for AMD ROCm from source, follow the steps given in this section. This installation method should be used by MONAI for AMD ROCm developers. If you're a MONAI for AMD ROCm user, see :ref:`package-install`.
 
-1. Set up the Docker image using ROCm Docker image from Dockerhub.
+1. Set up the Docker image using the ROCm Docker image from Dockerhub.
 
    .. code-block:: shell
 
@@ -64,9 +64,7 @@ To build MONAI for AMD ROCm from source, follow the steps given in this section.
                   hipcub hipblas hipblas-dev hipfft hipsparse  \
                   hiprand rocsolver rocrand-dev rocm-hip-sdk
 
-3. Download the MONAI for AMD ROCm repository.
-
-   Checkout the latest version of MONAI for AMD ROCm from the git repository:
+3. Download the latest version of MONAI for AMD ROCm from the git repository:
 
    .. code-block:: shell
 
@@ -108,7 +106,7 @@ Installing using package manager
 
 To install MONAI for AMD ROCm using package manager, follow the steps given in this section. This installation method should be used by MONAI for AMD ROCm users. If you're a MONAI for AMD ROCm developer, see :ref:`source-install`
 
-1. Set up the Docker image using ROCm Docker image from Dockerhub.
+1. Set up the Docker image using the ROCm Docker image from Dockerhub.
 
    .. code-block:: shell
 
