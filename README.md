@@ -23,19 +23,19 @@ Its ambitions are as follows:
 
 ## Requirements
 
-MONAI for AMD ROCm works with Python 3.10, and depends directly on NumPy and [PyTorch for AMD ROCm](https://pytorch.org/blog/pytorch-for-amd-rocm-platform-now-available-as-python-package/) with many optional dependencies.
+MONAI for AMD ROCm works with Python 3.10, and depends directly on NumPy and [PyTorch for AMD ROCm](https://pytorch.org/blog/pytorch-for-amd-rocm-platform-now-available-as-python-package/) with many optional dependencies. See the `requirements*.txt` files for dependency version information.
+
 * AMD MONAI supports [ROCm-LS/hipCIM](https://rocm.docs.amd.com/projects/hipCIM/en/latest/index.html) for accelerated image loading and processing on AMD Instinct GPUs.
-* See the `requirements*.txt` files for dependency version information.
 
 ## Installation
 
 To install [the current release](https://pypi.amd.com/simple/amd-monai/), you can simply run:
 
 ```bash
-pip install amd_monai --extra-index-url=https://pypi.amd.com/simple
+pip install amd-monai --extra-index-url=https://pypi.amd.com/simple
 ```
 
-Please refer to [the installation guide](https://rocm.docs.amd.com/projects/MONAI/en/latest/installation/installation.html) for other installation options.
+Please refer to [the installation guide](https://rocm.docs.amd.com/projects/monai/en/latest/install/installation.html) for other installation options.
 
 ## Getting Started
 
@@ -43,7 +43,7 @@ Please refer to [the installation guide](https://rocm.docs.amd.com/projects/MONA
 
 Examples and notebook tutorials are located at [Project-MONAI/tutorials](https://github.com/Project-MONAI/tutorials).
 
-Technical documentation is available at [MONAI for AMD ROCm documentation](https://rocm.docs.amd.com/projects/MONAI/en/latest/index.html).
+Technical documentation is available at [MONAI for AMD ROCm documentation](https://rocm.docs.amd.com/projects/monai/en/latest/index.html).
 
 ## Citation
 
@@ -62,11 +62,4 @@ For guidance on making a contribution to MONAI, see the [contributing guidelines
 
 Join the conversation on Twitter/X [@ProjectMONAI](https://twitter.com/ProjectMONAI), [LinkedIn](https://www.linkedin.com/company/projectmonai), or join our [Slack channel](https://forms.gle/QTxJq3hFictp31UM9).
 
-Ask and answer questions over on [MONAI's GitHub Discussions tab](https://github.com/Project-MONAI/MONAI/discussions).
-
-## Links
-
-- Website: <https://instinct.docs.amd.com/latest/life-science/MONAI.html>
-- Code: <https://github.com/ROCm-LS/MONAI>
-- Issue tracker: <https://github.com/ROCm-LS/MONAI/issues>
-- PyPI package: <https://pypi.amd.com/simple/amd-monai/>
+Ask and answer questions about MONAI over on [MONAI's GitHub Discussions tab](https://github.com/Project-MONAI/MONAI/discussions).
