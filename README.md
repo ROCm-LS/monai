@@ -32,10 +32,10 @@ MONAI for AMD ROCm works with Python 3.10, and depends directly on NumPy and [Py
 To install [the current release](https://pypi.amd.com/simple/amd-monai/), you can simply run:
 
 ```bash
-pip install amd_monai --extra-index-url=https://pypi.amd.com/simple
+pip install amd-monai --extra-index-url=https://pypi.amd.com/simple
 ```
 
-Please refer to [the installation guide](https://rocm.docs.amd.com/projects/MONAI/en/latest/installation/installation.html) for other installation options.
+Please refer to [the installation guide](https://rocm.docs.amd.com/projects/monai/en/latest/install/installation.html) for other installation options.
 
 ## Getting Started
 
