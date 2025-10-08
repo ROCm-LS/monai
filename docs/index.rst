@@ -44,6 +44,10 @@ The documentation is structured as follows:
     * :ref:`monai-features`
     * :ref:`model-zoo`
 
+  .. grid-item-card:: Related content
+
+    * `MONAI blog <https://rocm.blogs.amd.com/artificial-intelligence/monai-rocm/README.html>`_
+
 To contribute to MONAI for AMD ROCm, refer to
 `Contributing to MONAI for AMD ROCm <https://github.com/ROCm-LS/monai/blob/main/CONTRIBUTING.md>`_.
 
