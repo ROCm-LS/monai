@@ -28,7 +28,7 @@ The MONAI for AMD ROCm key features include:
 
   MONAI for AMD ROCm is in an early access state. Running production workloads is not recommended.
 
-The code is open and hosted at `<https://github.com/AMD-AIOSS/monai>`_.
+The code is open and hosted at `<https://github.com/ROCm-LS/monai>`_.
 
 The documentation is structured as follows:
 
@@ -46,10 +46,10 @@ The documentation is structured as follows:
 
   .. grid-item-card:: Related content
 
-    * `MONAI blogs <https://github.com/ROCm/rocm-blogs-internal/blob/dwiddows-1351/blogs/artificial-intelligence/monai-rocm/README.md>`_
+    * `MONAI blog <https://rocm.blogs.amd.com/artificial-intelligence/monai-rocm/README.html>`_
 
 To contribute to MONAI for AMD ROCm, refer to
-`Contributing to MONAI for AMD ROCm <https://github.com/AMD-AIOSS/monai/blob/amd-integration/CONTRIBUTING.md>`_.
+`Contributing to MONAI for AMD ROCm <https://github.com/ROCm-LS/monai/blob/main/CONTRIBUTING.md>`_.
 
 You can find licensing information on the
 :doc:`Licensing <license>` page.
