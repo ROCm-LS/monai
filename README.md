@@ -35,7 +35,7 @@ To install [the current release](https://pypi.amd.com/simple/amd-monai/), you ca
 pip install amd_monai --extra-index-url=https://pypi.amd.com/simple
 ```
 
-Please refer to [the installation guide](https://rocm.docs.amd.com/projects/MONAI/en/latest/installation/installation.html) for other installation options.
+Please refer to [the installation guide](https://rocm.docs.amd.com/projects/monai/en/latest/install/installation.html) for other installation options.
 
 ## Getting Started
 
