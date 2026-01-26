@@ -57,11 +57,11 @@ Here are the MONAI for AMD ROCm features:
 
 - Model Zoo with pretrained models
 
-  - Provides access to a wide collection of pretrained models from the `MONAI Model Zoo <https://github.com/Project-MONAI/model-zoo>`_, ready for fine-tuning on custom datasets.
+  - Provides access to a wide collection of pretrained models from the `MONAI Model Zoo <https://project-monai.github.io/model-zoo.html#/>`_, ready for fine-tuning on custom datasets.
 
   - Examples include UNet, SegResNet, SwinUNETR, and various organ-specific models.
 
-  - Utilizing the `MONAI Bundle format <https://docs.monai.io/en/latest/bundle_intro.html>`_ makes it easy to `get started <https://github.com/Project-MONAI/tutorials/tree/main/model_zoo>`_ on building workflows with MONAI.
+  - Utilizing the `MONAI Bundle format <https://monai.readthedocs.io/en/latest/bundle_intro.html>`_ makes it easy to `get started <https://github.com/Project-MONAI/tutorials/tree/main/model_zoo>`_ on building workflows with MONAI.
 
 Limitations
 ------------
