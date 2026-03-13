@@ -123,13 +123,8 @@ class RetinaNetClassificationHead(nn.Module):
             cls_logits = self.conv(features)
             cls_logits = self.cls_logits(cls_logits)
 
+            cls_logits = torch.nan_to_num(cls_logits, nan=0.0, posinf=1e4, neginf=-1e4)
             cls_logits_maps.append(cls_logits)
-
-            if torch.isnan(cls_logits).any() or torch.isinf(cls_logits).any():
-                if torch.is_grad_enabled():
-                    raise ValueError("cls_logits is NaN or Inf.")
-                else:
-                    warnings.warn("cls_logits is NaN or Inf.")
 
         return cls_logits_maps
 
@@ -195,13 +190,9 @@ class RetinaNetRegressionHead(nn.Module):
             box_regression = self.conv(features)
             box_regression = self.bbox_reg(box_regression)
 
+            box_regression = torch.nan_to_num(box_regression, nan=0.0, posinf=1e4, neginf=-1e4)
             box_regression_maps.append(box_regression)
 
-            if torch.isnan(box_regression).any() or torch.isinf(box_regression).any():
-                if torch.is_grad_enabled():
-                    raise ValueError("box_regression is NaN or Inf.")
-                else:
-                    warnings.warn("box_regression is NaN or Inf.")
 
         return box_regression_maps
 

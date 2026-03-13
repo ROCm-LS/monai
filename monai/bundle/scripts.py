@@ -549,6 +549,8 @@ def download(
         team_ = os.getenv("NGC_TEAM", None)
         if org_ is not None and source_ == "ngc_private":
             repo_ = f"org/{org_}/team/{team_}" if team_ is not None else f"org/{org_}"
+        elif source_ == "ngc_private":
+            raise ValueError("NGC_ORG environment variable must be set for ngc_private source when repo is not provided.")
         else:
             repo_ = "Project-MONAI/model-zoo/hosting_storage_v1"
     if len(repo_.split("/")) not in (2, 4) and source_ == "ngc_private":

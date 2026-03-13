@@ -4,7 +4,6 @@
     1. [Checking the coding style](#checking-the-coding-style)
     1. [Unit testing](#unit-testing)
     1. [Building the documentation](#building-the-documentation)
-    1. [Automatic code formatting](#automatic-code-formatting)
     1. [Adding new optional dependencies](#adding-new-optional-dependencies)
     1. [Signing your work](#signing-your-work)
     1. [Utility functions](#utility-functions)
@@ -21,11 +20,11 @@ Welcome to Project MONAI! We're excited you're here and want to contribute. This
 
 ### Communicate with us
 
-We are happy to talk with you about your needs for MONAI and your ideas for contributing to the project. One way to do this is to create an issue discussing your thoughts. It might be that a very similar feature is under development or already exists, so an issue is a great starting point. If you are looking for an issue to resolve that will help Project MONAI, see the [*good first issue*](https://github.com/Project-MONAI/MONAI/labels/good%20first%20issue) and [*Contribution wanted*](https://github.com/Project-MONAI/MONAI/labels/Contribution%20wanted) labels.
+We are happy to talk with you about your needs for MONAI for AMD ROCm&trade; and your ideas for contributing to the project. One way to do this is to create an issue discussing your thoughts. It might be that a very similar feature is under development or already exists, so an issue is a great starting point. If you are looking for an issue to resolve that will help Project MONAI, see the [*good first issue*](https://github.com/ROCm-LS/MONAI/labels/good%20first%20issue) and [*Contribution wanted*](https://github.com/ROCm-LS/MONAI/labels/Contribution%20wanted) labels.
 
-### Does it belong in PyTorch instead of MONAI?
+### Does it belong in PyTorch for AMD ROCm&trade; instead of MONAI for AMD ROCm&trade;?
 
-MONAI is part of [PyTorch Ecosystem](https://pytorch.org/ecosystem/), and mainly based on the PyTorch and Numpy libraries. These libraries implement what we consider to be best practice for general scientific computing and deep learning functionality. MONAI builds on these with a strong focus on medical applications. As such, it is a good idea to consider whether your functionality is medical-application specific or not. General deep learning functionality may be better off in PyTorch; you can find their contribution guidelines [here](https://pytorch.org/docs/stable/community/contribution_guide.html).
+MONAI for AMD ROCm&trade; is mainly based on the PyTorch for [AMD ROCm&trade;](https://pytorch.org/blog/pytorch-for-amd-rocm-platform-now-available-as-python-package/) and Numpy libraries. These libraries implement what we consider to be best practice for general scientific computing and deep learning functionality. MONAI for AMD ROCm&trade; builds on these with a strong focus on medical applications. As such, it is a good idea to consider whether your functionality is medical-application specific or not. General deep learning functionality may be better off in PyTorch for AMD ROCm&trade;; you can find their contribution guidelines [here](https://pytorch.org/docs/stable/community/contribution_guide.html).
 
 ## The contribution process
 
@@ -33,12 +32,10 @@ MONAI is part of [PyTorch Ecosystem](https://pytorch.org/ecosystem/), and mainly
 
 We encourage you to create pull requests early. It helps us track the contributions under development, whether they are ready to be merged or not. [Create a draft pull request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/changing-the-stage-of-a-pull-request) until it is ready for formal review.
 
-Please note that, as per PyTorch, MONAI uses American English spelling. This means classes and variables should be: normali**z**e, visuali**z**e, colo~~u~~r, etc.
+Please note that, as per PyTorch for AMD ROCm&trade;, MONAI for AMD ROCm&trade; uses American English spelling. This means classes and variables should be: normali**z**e, visuali**z**e, colo~~u~~r, etc.
 
 ### Preparing pull requests
-
-To ensure the code quality, MONAI relies on several linting tools ([flake8 and its plugins](https://gitlab.com/pycqa/flake8), [black](https://github.com/psf/black), [isort](https://github.com/timothycrosley/isort), [ruff](https://github.com/astral-sh/ruff)),
-static type analysis tools ([mypy](https://github.com/python/mypy), [pytype](https://github.com/google/pytype)), as well as a set of unit/integration tests.
+To ensure the code quality, MONAI for AMD ROCm&trade; relies on several linting tools ([flake8 and its plugins](https://gitlab.com/pycqa/flake8), [black](https://github.com/psf/black), [isort](https://github.com/timothycrosley/isort), [ruff](https://github.com/astral-sh/ruff)), static type analysis tools ([mypy](https://github.com/python/mypy), [pytype](https://github.com/google/pytype)), as well as a set of unit/integration tests.
 
 This section highlights all the necessary preparation steps required before sending a pull request.
 To collaborate efficiently, please read through this section and follow them.
@@ -57,7 +54,7 @@ Before submitting a pull request, we recommend that all linting should pass, by 
 ```bash
 # optionally update the dependencies and dev tools
 python -m pip install -U pip
-python -m pip install -U -r requirements-dev.txt
+python -m pip install -U -r requirements-dev.txt -c amd-constraints.txt
 
 # run the linting and type checking tools
 ./runtests.sh --codeformat
@@ -78,7 +75,7 @@ Full linting and type checking may take some time. If you need a quick check, ru
 All source code files should start with this paragraph:
 
 ```
-# Copyright (c) MONAI Consortium
+# Copyright © Advanced Micro Devices, Inc., or its affiliates.
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
@@ -99,8 +96,7 @@ If you intend for any variables/functions/classes to be available outside of the
 - Add to the `__init__.py` file.
 
 #### Unit testing
-
-MONAI tests are located under `tests/`.
+MONAI for AMD ROCm&trade; tests are located under `tests/`.
 
 - The unit test's file name currently follows `test_[module_name].py` or `test_[module_name]_dist.py`.
 - The `test_[module_name]_dist.py` subset of unit tests requires a distributed environment to verify the module with distributed GPU-based computation.
@@ -129,7 +125,7 @@ or (for new features that would not break existing functionality):
 ```
 
 It is recommended that the new test `test_[module_name].py` is constructed by using only
-python 3.9+ build-in functions, `torch`, `numpy`, `coverage` (for reporting code coverages) and `parameterized` (for organising test cases) packages.
+python 3.9+ built-in functions, `torch`, `numpy`, `coverage` (for reporting code coverages) and `parameterized` (for organising test cases) packages.
 If it requires any other external packages, please make sure:
 
 - the packages are listed in [`requirements-dev.txt`](requirements-dev.txt)
@@ -149,11 +145,9 @@ All new functionality should be accompanied by an appropriate set of tests.
 MONAI functionality has plenty of unit tests from which you can draw inspiration,
 and you can reach out to us if you are unsure of how to proceed with testing.
 
-MONAI's code coverage report is available at [CodeCov](https://codecov.io/gh/Project-MONAI/MONAI).
-
 #### Building the documentation
 
-MONAI's documentation is located at `docs/`.
+MONAI for AMD ROCm&trade;'s documentation is located at `docs/`.
 
 ```bash
 # install the doc-related dependencies
@@ -197,10 +191,10 @@ The first line of the comment must be `/black` so that it will be interpreted by
 
 #### Adding new optional dependencies
 
-In addition to the minimal requirements of PyTorch and Numpy, MONAI's core modules are built optionally based on 3rd-party packages.
+In addition to the minimal requirements of PyTorch for AMD ROCm&trade; and Numpy, MONAI for AMD ROCm&trade;'s core modules are built optionally based on 3rd-party packages.
 The current set of dependencies is listed in [installing dependencies](https://docs.monai.io/en/stable/installation.html#installing-the-recommended-dependencies).
 
-To allow for flexible integration of MONAI with other systems and environments,
+To allow for flexible integration of MONAI for AMD ROCm&trade; with other systems and environments,
 the optional dependency APIs are always invoked lazily. For example,
 
 ```py
@@ -244,7 +238,7 @@ cases when running in a minimal setup.
 
 #### Signing your work
 
-MONAI enforces the [Developer Certificate of Origin](https://developercertificate.org/) (DCO) on all pull requests.
+MONAI for AMD ROCm&trade; enforces the [Developer Certificate of Origin](https://developercertificate.org/) (DCO) on all pull requests.
 All commit messages should contain the `Signed-off-by` line with an email address. The [GitHub DCO app](https://github.com/apps/dco) is deployed on MONAI. The pull request's status will be `failed` if commits do not contain a valid `Signed-off-by` line.
 
 Git has a `-s` (or `--signoff`) command-line option to append this automatically to your commit message:
@@ -305,7 +299,7 @@ By making a contribution to this project, I certify that:
 
 #### Utility functions
 
-MONAI provides a set of generic utility functions and frequently used routines.
+MONAI for AMD ROCm&trade; provides a set of generic utility functions and frequently used routines.
 These are located in [``monai/utils``](./monai/utils/) and in the module folders such as [``networks/utils.py``](./monai/networks/).
 Users are encouraged to use these common routines to improve code readability and reduce the code maintenance burdens.
 
@@ -358,7 +352,6 @@ Ideally, the new branch should be based on the latest `dev` branch.
 1. Reviewer and contributor may have discussions back and forth until all comments addressed.
 1. Wait for the pull request to be merged.
 
-## The code reviewing process
 
 ### Reviewing pull requests
 

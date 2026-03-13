@@ -11,6 +11,8 @@
 
 from __future__ import annotations
 
+import logging
+import os
 import re
 from collections import OrderedDict
 from collections.abc import Sequence
@@ -21,6 +23,8 @@ import torch.nn as nn
 from torch.hub import load_state_dict_from_url
 
 from monai.apps.utils import download_url
+
+logger = logging.getLogger(__name__)
 from monai.networks.blocks.convolutions import Convolution
 from monai.networks.blocks.squeeze_and_excitation import SEBottleneck, SEResNetBottleneck, SEResNeXtBottleneck
 from monai.networks.layers.factories import Act, Conv, Dropout, Norm, Pool
@@ -300,11 +304,32 @@ def _load_state_dict(model: nn.Module, arch: str, progress: bool):
     pattern_down_conv = re.compile(r"^(layer[1-4]\.\d\.)(?:downsample.0.)(\w*)$")
     pattern_down_bn = re.compile(r"^(layer[1-4]\.\d\.)(?:downsample.1.)(\w*)$")
 
-    if isinstance(model_url, dict):
-        download_url(model_url["url"], filepath=model_url["filename"])
-        state_dict = torch.load(model_url["filename"], map_location=None, weights_only=True)
-    else:
-        state_dict = load_state_dict_from_url(model_url, progress=progress)
+    max_retries = 3
+    state_dict = None
+    for attempt in range(max_retries):
+        try:
+            if isinstance(model_url, dict):
+                download_url(model_url["url"], filepath=model_url["filename"])
+                state_dict = torch.load(model_url["filename"], map_location=None, weights_only=True)
+            else:
+                state_dict = load_state_dict_from_url(model_url, progress=progress)
+            break
+        except RuntimeError as e:
+            if "unexpected EOF" in str(e) or "corrupted" in str(e):
+                logger.warning(f"Download attempt {attempt + 1}/{max_retries} failed (corrupted file): {e}")
+                # Remove the cached corrupted file so the next attempt re-downloads
+                if isinstance(model_url, dict):
+                    cached = model_url["filename"]
+                else:
+                    parts = torch.hub.urlparse(model_url)
+                    filename = os.path.basename(parts.path)
+                    cached = os.path.join(torch.hub.get_dir(), "checkpoints", filename)
+                if os.path.exists(cached):
+                    os.remove(cached)
+                if attempt == max_retries - 1:
+                    raise
+            else:
+                raise
     for key in list(state_dict.keys()):
         new_key = None
         if pattern_conv.match(key):

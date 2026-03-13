@@ -25,6 +25,7 @@ load_tf_weights_in_bert = optional_import("transformers", name="load_tf_weights_
 cached_file = optional_import("transformers.utils", name="cached_file")[0]
 BertEmbeddings = optional_import("transformers.models.bert.modeling_bert", name="BertEmbeddings")[0]
 BertLayer = optional_import("transformers.models.bert.modeling_bert", name="BertLayer")[0]
+BertConfig = optional_import("transformers", name="BertConfig")[0]
 
 __all__ = ["BertPreTrainedModel", "BertAttention", "BertOutput", "BertMixedLayer", "Pooler", "MultiModal", "Transchex"]
 
@@ -219,19 +220,28 @@ class MultiModal(BertPreTrainedModel):
 
         """
         super().__init__()
-        self.config = type("obj", (object,), bert_config)
+        self.config = BertConfig(**bert_config)
         self.embeddings = BertEmbeddings(self.config)
         self.language_encoder = nn.ModuleList([BertLayer(self.config) for _ in range(num_language_layers)])
         self.vision_encoder = nn.ModuleList([BertLayer(self.config) for _ in range(num_vision_layers)])
         self.mixed_encoder = nn.ModuleList([BertMixedLayer(self.config) for _ in range(num_mixed_layers)])
         self.apply(self.init_bert_weights)
 
+    def _extract_hidden_states(self, layer_output):
+        """Extract hidden states from BertLayer output.
+
+        Handles both old transformers (returns tuple) and new transformers (returns tensor) versions.
+        """
+        if isinstance(layer_output, tuple):
+            return layer_output[0]
+        return layer_output
+
     def forward(self, input_ids, token_type_ids=None, vision_feats=None, attention_mask=None):
         language_features = self.embeddings(input_ids, token_type_ids)
         for layer in self.vision_encoder:
-            vision_feats = layer(vision_feats, None)[0]
+            vision_feats = self._extract_hidden_states(layer(vision_feats, None))
         for layer in self.language_encoder:
-            language_features = layer(language_features, attention_mask)[0]
+            language_features = self._extract_hidden_states(layer(language_features, attention_mask))
         for layer in self.mixed_encoder:
             language_features, vision_feats = layer(language_features, vision_feats)
         return language_features, vision_feats

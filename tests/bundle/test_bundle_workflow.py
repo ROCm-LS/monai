@@ -232,7 +232,7 @@ class TestBundleWorkflow(unittest.TestCase):
         config_file = {"roi_size": (64, 64, 32)}
         meta_file = os.path.join(MODULE_PATH, "testing_data", "metadata.json")
         property_path = os.path.join(MODULE_PATH, "testing_data", "python_workflow_properties.json")
-        sys.path.append(MODULE_PATH)
+        sys.path.append(str(MODULE_PATH))
         workflow = create_workflow(
             "tests.nonconfig_workflow.PythonicWorkflowImpl",
             workflow_type="infer",
