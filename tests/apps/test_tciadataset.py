@@ -13,6 +13,7 @@ from __future__ import annotations
 
 import os
 import shutil
+import subprocess
 import unittest
 from pathlib import Path
 
@@ -107,7 +108,12 @@ class TestTciaDataset(unittest.TestCase):
                 val_frac=val_frac,
             )[0]
 
-        shutil.rmtree(os.path.join(testing_dir, collection))
+        collection_dir = os.path.join(testing_dir, collection)
+        # Use ignore_errors to handle race conditions on NFS/network filesystems
+        shutil.rmtree(collection_dir, ignore_errors=True)
+        # Force removal if directory still exists (can happen on some filesystems)
+        if os.path.exists(collection_dir):
+            subprocess.run(["rm", "-rf", collection_dir], check=False)
         with self.assertRaisesRegex(RuntimeError, "^Cannot find dataset directory"):
             TciaDataset(
                 root_dir=testing_dir,

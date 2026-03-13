@@ -13,6 +13,7 @@ from __future__ import annotations
 
 import warnings
 from os import path
+from pathlib import Path, PosixPath, WindowsPath
 from typing import Any, cast
 
 import numpy as np
@@ -332,9 +333,9 @@ class DataAnalyzer:
 
         for batch_data in tqdm(dataloader) if (has_tqdm and rank == 0) else dataloader:
             batch_data = batch_data[0]
+            _label_argmax = False
             try:
                 batch_data[self.image_key] = batch_data[self.image_key].to(device)
-                _label_argmax = False
                 if self.label_key is not None:
                     label = batch_data[self.label_key]
                     label = torch.argmax(label, dim=0) if label.shape[0] > 1 else label[0]

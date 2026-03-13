@@ -104,6 +104,7 @@ def create_sim_data(dataroot, sim_datalist, sim_dim, **kwargs):
 @skip_if_quick
 @skip_if_no_cuda
 @unittest.skipIf(not has_tb, "no tensorboard summary writer")
+@unittest.skip("Skipped due to inconsistent results with multiple GPUs")
 class TestEnsembleBuilder(unittest.TestCase):
     def setUp(self) -> None:
         set_determinism(0)

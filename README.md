@@ -2,22 +2,10 @@
   <img src="https://raw.githubusercontent.com/Project-MONAI/MONAI/dev/docs/images/MONAI-logo-color.png" width="50%" alt='project-monai'>
 </p>
 
-**M**edical **O**pen **N**etwork for **AI**
+**M**edical **O**pen **N**etwork for **AI** for **AMD ROCm&trade;**
 
-![Supported Python versions](https://raw.githubusercontent.com/Project-MONAI/MONAI/dev/docs/images/python.svg)
-[![License](https://img.shields.io/badge/license-Apache%202.0-green.svg)](https://opensource.org/licenses/Apache-2.0)
-[![auto-commit-msg](https://img.shields.io/badge/dynamic/json?label=citations&query=%24.citationCount&url=https%3A%2F%2Fapi.semanticscholar.org%2Fgraph%2Fv1%2Fpaper%2FDOI%3A10.48550%2FarXiv.2211.02701%3Ffields%3DcitationCount)](https://arxiv.org/abs/2211.02701)
-[![PyPI version](https://badge.fury.io/py/monai.svg)](https://badge.fury.io/py/monai)
-[![docker](https://img.shields.io/badge/docker-pull-green.svg?logo=docker&logoColor=white)](https://hub.docker.com/r/projectmonai/monai)
-[![conda](https://img.shields.io/conda/vn/conda-forge/monai?color=green)](https://anaconda.org/conda-forge/monai)
+MONAI for AMD ROCm&trade; is a [PyTorch](https://pytorch.org/)-based, [open-source](LICENSE) framework for deep learning in healthcare imaging, part of the [PyTorch Ecosystem](https://pytorch.org/ecosystem/), enabled for AMD Instinct GPUs.
 
-[![premerge](https://github.com/Project-MONAI/MONAI/actions/workflows/pythonapp.yml/badge.svg?branch=dev)](https://github.com/Project-MONAI/MONAI/actions/workflows/pythonapp.yml)
-[![postmerge](https://img.shields.io/github/checks-status/project-monai/monai/dev?label=postmerge)](https://github.com/Project-MONAI/MONAI/actions?query=branch%3Adev)
-[![Documentation Status](https://readthedocs.org/projects/monai/badge/?version=latest)](https://docs.monai.io/en/latest/)
-[![codecov](https://codecov.io/gh/Project-MONAI/MONAI/branch/dev/graph/badge.svg?token=6FTC7U1JJ4)](https://codecov.io/gh/Project-MONAI/MONAI)
-[![monai Downloads Last Month](https://assets.piptrends.com/get-last-month-downloads-badge/monai.svg 'monai Downloads Last Month by pip Trends')](https://piptrends.com/package/monai)
-
-MONAI is a [PyTorch](https://pytorch.org/)-based, [open-source](https://github.com/Project-MONAI/MONAI/blob/dev/LICENSE) framework for deep learning in healthcare imaging, part of the [PyTorch Ecosystem](https://pytorch.org/ecosystem/).
 Its ambitions are as follows:
 
 - Developing a community of academic, industrial and clinical researchers collaborating on a common foundation;
@@ -36,22 +24,20 @@ Its ambitions are as follows:
 
 ## Requirements
 
-MONAI works with the [currently supported versions of Python](https://devguide.python.org/versions), and depends directly on NumPy and PyTorch with many optional dependencies.
-
-* Major releases of MONAI will have dependency versions stated for them. The current state of the `dev` branch in this repository is the unreleased development version of MONAI which typically will support current versions of dependencies and include updates and bug fixes to do so.
-* PyTorch support covers [the current version](https://github.com/pytorch/pytorch/releases) plus three previous minor versions. If compatibility issues with a PyTorch version and other dependencies arise, support for a version may be delayed until a major release.
-* Our support policy for other dependencies adheres for the most part to [SPEC0](https://scientific-python.org/specs/spec-0000), where dependency versions are supported where possible for up to two years. Discovered vulnerabilities or defects may require certain versions to be explicitly not supported.
+MONAI for AMD ROCm works with Python 3.12, and depends directly on NumPy and [PyTorch for AMD ROCm](https://pytorch.org/blog/pytorch-for-amd-rocm-platform-now-available-as-python-package/) with many optional dependencies.
+* AMD MONAI supports [ROCm-LS/hipCIM](https://rocm.docs.amd.com/projects/hipCIM/en/latest/index.html) for accelerated image loading and processing on AMD Instinct GPUs.
 * See the `requirements*.txt` files for dependency version information.
 
 ## Installation
 
-To install [the current release](https://pypi.org/project/monai/), you can simply run:
+Install [the current release](https://pypi.amd.com/rocm-7.2/simple/amd-monai/) using pip with the appropriate ROCm index:
 
-```bash
-pip install monai
-```
+| ROCm Version | Install Command |
+|:---:|---|
+| **7.0.2** | `pip install amd-monai --extra-index-url=https://pypi.amd.com/rocm-7.0.2/simple/` |
+| **7.2** | `pip install amd-monai --extra-index-url=https://pypi.amd.com/rocm-7.2/simple/` |
 
-Please refer to [the installation guide](https://docs.monai.io/en/latest/installation.html) for other installation options.
+For additional options, see the [installation guide](https://rocm.docs.amd.com/projects/monai/en/latest/install/installation.html).
 
 ## Getting Started
 
@@ -59,7 +45,7 @@ Please refer to [the installation guide](https://docs.monai.io/en/latest/install
 
 Examples and notebook tutorials are located at [Project-MONAI/tutorials](https://github.com/Project-MONAI/tutorials).
 
-Technical documentation is available at [docs.monai.io](https://docs.monai.io).
+Technical documentation is available at [MONAI for AMD ROCm documentation](https://rocm.docs.amd.com/projects/MONAI/en/latest/index.html).
 
 ## Citation
 
@@ -72,7 +58,7 @@ Utilizing [the MONAI Bundle format](https://docs.monai.io/en/latest/bundle_intro
 
 ## Contributing
 
-For guidance on making a contribution to MONAI, see the [contributing guidelines](https://github.com/Project-MONAI/MONAI/blob/dev/CONTRIBUTING.md).
+For guidance on making a contribution to MONAI, see the [contributing guidelines](CONTRIBUTING.md).
 
 ## Community
 
@@ -82,15 +68,7 @@ Ask and answer questions over on [MONAI's GitHub Discussions tab](https://github
 
 ## Links
 
-- Website: <https://monai.io/>
-- API documentation (milestone): <https://docs.monai.io/>
-- API documentation (latest dev): <https://docs.monai.io/en/latest/>
-- Code: <https://github.com/Project-MONAI/MONAI>
-- Project tracker: <https://github.com/Project-MONAI/MONAI/projects>
-- Issue tracker: <https://github.com/Project-MONAI/MONAI/issues>
-- Wiki: <https://github.com/Project-MONAI/MONAI/wiki>
-- Test status: <https://github.com/Project-MONAI/MONAI/actions>
-- PyPI package: <https://pypi.org/project/monai/>
-- conda-forge: <https://anaconda.org/conda-forge/monai>
-- Weekly previews: <https://pypi.org/project/monai-weekly/>
-- Docker Hub: <https://hub.docker.com/r/projectmonai/monai>
+- Website: <https://instinct.docs.amd.com/latest/life-science/MONAI.html>
+- Code: <https://github.com/ROCm-LS/MONAI>
+- Issue tracker: <https://github.com/ROCm-LS/MONAI/issues>
+- PyPI package: <https://pypi.amd.com/simple/amd-monai/>
