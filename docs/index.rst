@@ -8,7 +8,7 @@
 MONAI for AMD ROCm documentation
 *********************************
 
-The Medical Open Network for AI (MONAI) is a domain-optimized, open-source framework based on PyTorch, explicitly designed for deep learning in healthcare imaging. MONAI 1.0.0 for AMD ROCm is a HIP port of `MONAI upstream version 1.5.0 <https://monai.readthedocs.io/en/stable/whatsnew_1_5.html>`_. It is API-compatible with upstream MONAI without requiring any code changes.
+The Medical Open Network for AI (MONAI) is a domain-optimized, open-source framework based on PyTorch, explicitly designed for deep learning in healthcare imaging. MONAI 1.5.0 for AMD ROCm is a HIP port of `MONAI upstream version 1.5.0 <https://monai.readthedocs.io/en/stable/whatsnew_1_5.html>`_. It is API-compatible with upstream MONAI without requiring any code changes.
 
 MONAI for AMD ROCm, a ROCm-enabled version of `MONAI <https://project-monai.github.io/>`_, is built on top of `PyTorch for AMD ROCm <https://pytorch.org/blog/pytorch-for-amd-rocm-platform-now-available-as-python-package/>`_, helping healthcare and life science innovators to leverage GPU acceleration with AMD Instinct GPUs for high-performance inference and training of medical AI applications.
 
@@ -16,17 +16,19 @@ MONAI for AMD ROCm offers open, scalable, and high-performance solutions for lif
 
 The MONAI for AMD ROCm key features include:
 
-- Flexible preprocessing for multidimensional medical imaging data
+- Flexible preprocessing for multidimensional medical imaging data.
 
-- Compositional and portable APIs for smooth integration into existing workflows
+- Compositional and portable APIs for smooth integration into existing workflows.
 
-- Domain-specific implementations for networks, losses, evaluation metrics, and more
+- Domain-specific implementations for networks, losses, evaluation metrics, and more.
 
-- Customizable design according to user expertise
+- Customizable design according to user expertise.
+
+- Multi-GPU multinode data parallelism support.
 
 .. note::
 
-  MONAI for AMD ROCm is in an early access state. Running production workloads is not recommended.
+  MONAI 1.5.0 for AMD ROCm is in an early access state. Running production workloads is not recommended.
 
 The code is open and hosted at `<https://github.com/ROCm-LS/monai>`_.
 
