@@ -27,10 +27,9 @@ YANDEX_MODEL_FLAWED_URL = (
     "public_key=https%3A%2F%2Fdisk.yandex.ru%2Fd%2Fxs0gzlj2_irgWA-url-with-error"
 )
 
-
+@unittest.skip("yandex url download is unreachable, skipping the test")
 class TestDownloadUrlYandex(unittest.TestCase):
 
-    @unittest.skip("data source unstable")
     def test_verify(self):
         with tempfile.TemporaryDirectory() as tempdir:
             download_url(url=YANDEX_MODEL_URL, filepath=os.path.join(tempdir, "model.pt"))

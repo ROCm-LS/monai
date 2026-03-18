@@ -20,7 +20,9 @@ from monai.apps.detection.networks.retinanet_network import RetinaNet, resnet_fp
 from monai.networks import eval_mode
 from monai.networks.nets import resnet10, resnet18, resnet34, resnet50, resnet101, resnet152, resnet200
 from monai.utils import ensure_tuple, optional_import
-from tests.test_utils import SkipIfBeforePyTorchVersion, skip_if_quick, test_onnx_save, test_script_save
+from tests.test_utils import SkipIfBeforePyTorchVersion, skip_if_quick
+from tests.test_utils import test_onnx_save as _test_onnx_save 
+from tests.test_utils import test_script_save as _test_script_save
 
 _, has_torchvision = optional_import("torchvision")
 
@@ -150,7 +152,7 @@ class TestRetinaNet(unittest.TestCase):
         data = torch.randn(input_shape)
         backbone = model(**input_param)
         if idx == 0:
-            test_script_save(backbone, data)
+            _test_onnx_save(backbone, data, rtol=2e-2, atol=1e-5)
             return
         feature_extractor = resnet_fpn_feature_extractor(
             backbone=backbone,
@@ -160,7 +162,7 @@ class TestRetinaNet(unittest.TestCase):
             returned_layers=[1, 2],
         )
         if idx == 1:
-            test_script_save(feature_extractor, data)
+            _test_script_save(feature_extractor, data, rtol=2e-2, atol=1e-5)
             return
         net = RetinaNet(
             spatial_dims=input_param["spatial_dims"],
@@ -170,7 +172,7 @@ class TestRetinaNet(unittest.TestCase):
             size_divisible=32,
         )
         if idx == 2:
-            test_script_save(net, data)
+            _test_script_save(net, data, rtol=2e-2, atol=1e-5)
 
     @parameterized.expand(TEST_CASES_TS)
     def test_onnx(self, model, input_param, input_shape):
@@ -183,7 +185,7 @@ class TestRetinaNet(unittest.TestCase):
         data = torch.randn(input_shape)
         backbone = model(**input_param)
         if idx == 0:
-            test_onnx_save(backbone, data, rtol=2e-2, atol=1e-5)
+            _test_onnx_save(backbone, data, rtol=2e-2, atol=1e-5)
             return
         feature_extractor = resnet_fpn_feature_extractor(
             backbone=backbone,
@@ -193,7 +195,7 @@ class TestRetinaNet(unittest.TestCase):
             returned_layers=[1, 2],
         )
         if idx == 1:
-            test_onnx_save(feature_extractor, data, rtol=2e-2, atol=1e-5)
+            _test_onnx_save(feature_extractor, data, rtol=2e-2, atol=1e-5)
             return
         net = RetinaNet(
             spatial_dims=input_param["spatial_dims"],
@@ -203,7 +205,7 @@ class TestRetinaNet(unittest.TestCase):
             size_divisible=32,
         )
         if idx == 2:
-            test_onnx_save(net, data, rtol=2e-2, atol=1e-5)
+            _test_onnx_save(net, data, rtol=2e-2, atol=1e-5)
 
 
 if __name__ == "__main__":

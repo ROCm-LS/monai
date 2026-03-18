@@ -1,0 +1,25 @@
+commit d388d1c6fec8cb3a0eebee5b5a0b9776ca59ca83 (HEAD -> amd-integration, tag: 1.5.0, origin/dev, origin/amd-integration, dev)
+Author: YunLiu <55491388+KumoLiu@users.noreply.github.com>
+Date:   Fri Jun 13 19:08:52 2025 +0000
+
+    Update citation (#8484)
+    
+    Part of #8421
+    
+    ### Types of changes
+    <!--- Put an `x` in all the boxes that apply, and remove the not
+    applicable items -->
+    - [x] Non-breaking change (fix or new feature that would not break
+    existing functionality).
+    - [ ] Breaking change (fix or new feature that would cause existing
+    functionality to change).
+    - [ ] New tests added to cover the changes.
+    - [ ] Integration tests passed locally by running `./runtests.sh -f -u
+    --net --coverage`.
+    - [ ] Quick tests passed locally by running `./runtests.sh --quick
+    --unittests --disttests`.
+    - [ ] In-line docstrings updated.
+    - [ ] Documentation updated, tested `make html` command in the `docs/`
+    folder.
+    
+    Signed-off-by: YunLiu <55491388+KumoLiu@users.noreply.github.com>

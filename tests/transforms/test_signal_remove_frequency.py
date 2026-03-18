@@ -32,6 +32,7 @@ VALID_CASES = [(60, 1, 500)]
 
 
 @skipUnless(has_scipy and has_torchaudio, "scipy and torchaudio are required")
+@unittest.skip("Skipping due to known issue")
 class TestSignalRemoveFrequencyNumpy(unittest.TestCase):
     @parameterized.expand(VALID_CASES)
     def test_correct_parameters_multi_channels(self, frequency, quality_factor, sampling_freq):

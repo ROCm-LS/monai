@@ -378,12 +378,21 @@ def set_determinism(
         warnings.warn("PyTorch global flag support of backends is disabled, enable it to set global `cudnn` flags.")
         torch.backends.__allow_nonbracketed_mutation_flag = True
 
-    if seed is not None:
-        torch.backends.cudnn.deterministic = True
-        torch.backends.cudnn.benchmark = False
-    else:  # restore the original flags
-        torch.backends.cudnn.deterministic = _flag_deterministic
-        torch.backends.cudnn.benchmark = _flag_cudnn_benchmark
+    try:
+        if seed is not None:
+            torch.backends.cudnn.deterministic = True
+            torch.backends.cudnn.benchmark = False
+        else:  # restore the original flags
+            torch.backends.cudnn.deterministic = _flag_deterministic
+            torch.backends.cudnn.benchmark = _flag_cudnn_benchmark
+    except RuntimeError as e:
+        if "disable_global_flags" in str(e):
+            warnings.warn(
+                "Cannot set cudnn flags because disable_global_flags() was called. "
+                "Use torch.backends.cudnn.flags() context manager instead."
+            )
+        else:
+            raise
     if use_deterministic_algorithms is not None:
         if hasattr(torch, "use_deterministic_algorithms"):  # `use_deterministic_algorithms` is new in torch 1.8.0
             torch.use_deterministic_algorithms(use_deterministic_algorithms)

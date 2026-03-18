@@ -148,6 +148,10 @@ def skip_if_downloading_fails():
     except ssl.SSLError as ssl_e:
         if "decryption failed" in str(ssl_e):
             raise unittest.SkipTest(f"SSL error while downloading: {ssl_e}") from ssl_e
+    except ValueError as ve:
+        if "failed, attempt" in str(ve):  # wrapped download error from _download_algos_url
+            raise unittest.SkipTest(f"error while downloading: {ve}") from ve
+        raise
     except (RuntimeError, OSError) as rt_e:
         err_str = str(rt_e)
         if any(
