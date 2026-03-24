@@ -31,7 +31,7 @@ Here are the MONAI on ROCm features:
 
 - GPU acceleration
 
-  - Leverages AMD Instinct GPUs for high-throughput inference.
+  - Leverages AMD Instinct™ GPUs for high-throughput inference.
 
   - Delivers optimized memory and compute performance for large-scale medical datasets.
 
