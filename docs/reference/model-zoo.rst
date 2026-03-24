@@ -10,7 +10,7 @@ MONAI Model Zoo
 
 The `MONAI Model Zoo <https://project-monai.github.io/model-zoo.html#/>`_ is a hub for researchers and data scientists to share, discover, and deploy the latest models from across the biomedical imaging community. By using the standardized `MONAI Bundle format <https://monai.readthedocs.io/en/latest/bundle_intro.html>`_, you can easily start building workflows or integrating new models into your projects with the help of `tutorials <https://github.com/Project-MONAI/tutorials/tree/main/model_zoo>`_.
 
-MONAI on ROCm provides seamless compatibility with the vast majority of models in the Model Zoo, helping both researchers and clinicians to accelerate state-of-the-art AI pipelines directly on AMD Instinct GPUs. Segmentation, detection, and classification models, including 2D and 3D workflows, run out of the box with minimal setup.
+MONAI on ROCm provides seamless compatibility with the vast majority of models in the Model Zoo, helping both researchers and clinicians to accelerate state-of-the-art AI pipelines directly on AMD Instinct™ GPUs. Segmentation, detection, and classification models, including 2D and 3D workflows, run out of the box with minimal setup.
 
 EXAONEPath model (hf_exaonepath-crc-msi-predictor) on ROCm
 -----------------------------------------------------------
