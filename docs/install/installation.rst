@@ -4,15 +4,15 @@
 
 .. _installing-monai:
 
-==============================
-Installing MONAI for AMD ROCm
-==============================
+============================
+MONAI on ROCm installation
+============================
 
-This topic discusses how to install MONAI for AMD ROCm using the following options:
+To install MONAI on ROCm, you have the following options:
 
-- :ref:`From source (for developers) <source-install>`
+- :ref:`Use package manager <package-install>` (recommended)
 
-- :ref:`Using package manager (for users) <package-install>`
+- :ref:`Build from source <source-install>`
 
 System requirements
 --------------------
@@ -23,92 +23,22 @@ System requirements
 
 - Python version: 3.10
 
-- AMD GPU: AMD Instinct MI300X GPUs
+- AMD Instinct™ GPU: MI300X
 
 - `PyTorch for AMD ROCm <https://pytorch.org/blog/pytorch-for-amd-rocm-platform-now-available-as-python-package/>`_ version: 2.8.0+rocm 6.4
 
 - NumPy >=1.24,<3.0
 
-For more information about dependencies, see the ``requirements*.txt`` file.
-
-.. _source-install:
-
-Installing from source
------------------------
-
-To build MONAI for AMD ROCm from source, follow the steps given in this section. This installation method should be used by MONAI for AMD ROCm developers. If you're a MONAI for AMD ROCm user, see :ref:`package-install`.
-
-1. Set up the Docker image using ROCm Docker image from Dockerhub.
-
-   .. code-block:: shell
-
-      docker pull rocm/dev-ubuntu-22.04
-      docker run --cap-add=SYS_PTRACE --ipc=host --privileged=true   \
-         --shm-size=512GB --network=host --device=/dev/kfd     \
-         --device=/dev/dri --group-add video -it               \
-         -v $HOME:$HOME  --name ${LOGNAME}_monai               \
-                                           rocm/dev-ubuntu-22.04
-
-2. Install the required system dependencies.
-
-   .. code-block:: shell
-
-      sudo apt update
-      sudo apt install -y software-properties-common lsb-release gnupg
-      sudo apt-key adv --fetch-keys https://apt.kitware.com/keys/kitware-archive-latest.asc
-      sudo add-apt-repository -y "deb https://apt.kitware.com/ubuntu/ $(lsb_release -cs) main"
-      sudo apt update
-      sudo apt install -y git wget gcc g++ ninja-build git-lfs       \
-                  yasm libopenslide-dev python3.10-venv        \
-                  cmake rocjpeg rocjpeg-dev rocthrust-dev      \
-                  hipcub hipblas hipblas-dev hipfft hipsparse  \
-                  hiprand rocsolver rocrand-dev rocm-hip-sdk
-
-3. Download the MONAI for AMD ROCm repository.
-
-   Checkout the latest version of MONAI for AMD ROCm from the git repository:
-
-   .. code-block:: shell
-
-      git clone git@github.com:ROCm-LS/monai.git
-      cd monai
-
-4. Create and activate the development environment for building MONAI for AMD ROCm.
-
-   .. code-block:: shell
-
-      python3 -m venv monai_dev
-      source monai_dev/bin/activate
-      pip install --upgrade pip
-      pip install torch torchvision torchaudio      \
-                  --index-url https://download.pytorch.org/whl/rocm6.4
-      pip install amd-hipcim --extra-index-url=https://pypi.amd.com/simple
-      pip install -r requirements-dev.txt -c amd-constraints.txt
-
-5. Build and install MONAI for AMD ROCm on a ROCm based AMD system using the development environment.
-
-   To build and install the development version of MONAI for AMD ROCm, use:
-
-   .. code-block:: shell
-
-      BUILD_MONAI=1 FORCE_CUDA=1 python3 setup.py develop
-
-   To build and package an optimized wheel for installation, use:
-
-   .. code-block:: shell
-
-      BUILD_MONAI=1 FORCE_CUDA=1 python3 setup.py develop -O1 bdist_wheel
-
-   The preceding command builds the package in non-debug mode and the wheel file is generated under the ``dist`` directory.
+For the complete list of dependencies, see the `requirements.txt <https://github.com/ROCm-LS/monai/blob/main/requirements.txt>`_ file.
 
 .. _package-install:
 
 Installing using package manager
 ----------------------------------
 
-To install MONAI for AMD ROCm using package manager, follow the steps given in this section. This installation method should be used by MONAI for AMD ROCm users. If you're a MONAI for AMD ROCm developer, see :ref:`source-install`
+To install MONAI on ROCm using package manager, follow the steps given in this section.
 
-1. Set up the Docker image using ROCm Docker image from Dockerhub.
+1. Set up the Docker image using the ROCm Docker image from Docker Hub.
 
    .. code-block:: shell
 
@@ -157,26 +87,94 @@ To install MONAI for AMD ROCm using package manager, follow the steps given in t
             pynrrd clearml transformers pydicom fire ignite         \
             parameterized tensorboard pytorch-ignite onnx
 
-6. Install MONAI optimized for AMD Instinct GPUs from the AMD PyPi repository.
+6. Install MONAI on ROCm from the AMD PyPI repository.
 
    .. code-block:: shell
 
       pip install amd-monai --extra-index-url=https://pypi.amd.com/simple
 
+.. _source-install:
+
+Building from source
+-----------------------
+
+To build MONAI on ROCm from source, follow the steps given in this section.
+
+1. Set up the Docker image using the ROCm Docker image from Docker Hub.
+
+   .. code-block:: shell
+
+      docker pull rocm/dev-ubuntu-22.04
+      docker run --cap-add=SYS_PTRACE --ipc=host --privileged=true   \
+         --shm-size=512GB --network=host --device=/dev/kfd     \
+         --device=/dev/dri --group-add video -it               \
+         -v $HOME:$HOME  --name ${LOGNAME}_monai               \
+                                           rocm/dev-ubuntu-22.04:6.4.1
+
+2. Install the required system dependencies.
+
+   .. code-block:: shell
+
+      sudo apt update
+      sudo apt install -y software-properties-common lsb-release gnupg
+      sudo apt-key adv --fetch-keys https://apt.kitware.com/keys/kitware-archive-latest.asc
+      sudo add-apt-repository -y "deb https://apt.kitware.com/ubuntu/ $(lsb_release -cs) main"
+      sudo apt update
+      sudo apt install -y git wget gcc g++ ninja-build git-lfs       \
+                  yasm libopenslide-dev python3.10-venv        \
+                  cmake rocjpeg rocjpeg-dev rocthrust-dev      \
+                  hipcub hipblas hipblas-dev hipfft hipsparse  \
+                  hiprand rocsolver rocrand-dev rocm-hip-sdk
+
+3. Download the latest version of MONAI on ROCm from the GitHub repository:
+
+   .. code-block:: shell
+
+      git clone git@github.com:ROCm-LS/monai.git
+      cd monai
+
+4. Create and activate the development environment for building MONAI on ROCm.
+
+   .. code-block:: shell
+
+      python3 -m venv monai_dev
+      source monai_dev/bin/activate
+      pip install --upgrade pip
+      pip install torch torchvision torchaudio      \
+                  --index-url https://download.pytorch.org/whl/rocm6.4
+      pip install amd-hipcim --extra-index-url=https://pypi.amd.com/simple
+      pip install -r requirements-dev.txt -c amd-constraints.txt
+
+5. Build and install MONAI on ROCm on a ROCm-based AMD system using the development environment.
+
+   To build and install the development version of MONAI on ROCm, use:
+
+   .. code-block:: shell
+
+      BUILD_MONAI=1 FORCE_CUDA=1 python3 setup.py develop
+
+   To build and package an optimized wheel for installation, use:
+
+   .. code-block:: shell
+
+      BUILD_MONAI=1 FORCE_CUDA=1 python3 setup.py develop -O1 bdist_wheel
+
+   The preceding command builds the package in non-debug mode and the wheel file is generated under the ``dist`` directory.
+
 Verify installation
 --------------------
 
-Use these commands to verify the MONAI for AMD ROCm installation:
+Use these commands to verify the MONAI on ROCm installation:
 
-- Print MONAI for AMD ROCm version.
+- Print the MONAI on ROCm version.
 
   .. code-block:: shell
 
    $ python -c "import monai; print(monai.__version__)"
 
-   1.0.0
+   1.5.0
 
-- Print MONAI for AMD ROCm package info.
+- Print the MONAI on ROCm package info.
 
   .. code-block:: shell
 

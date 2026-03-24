@@ -8,12 +8,12 @@
 Supported features and limitations
 ===================================
 
-This topic discusses the features and limitations for MONAI 1.0.0 for AMD ROCm.
+This topic discusses the supported features and limitations of MONAI 1.5.0 on ROCm as compared to the `MONAI upstream version 1.5.0 <https://github.com/Project-MONAI/MONAI/releases/tag/1.5.0>`_.
 
 Features
 ---------
 
-Here are the MONAI for AMD ROCm features:
+Here are the MONAI on ROCm features:
 
 - Deep learning inference
 
@@ -59,14 +59,14 @@ Here are the MONAI for AMD ROCm features:
 
   - Provides access to a wide collection of pretrained models from the `MONAI Model Zoo <https://project-monai.github.io/model-zoo.html#/>`_, ready for fine-tuning on custom datasets.
 
-  - Examples include UNet, SegResNet, SwinUNETR, and various organ-specific models.
+  - Facilitates using the `MONAI Bundle format <https://monai.readthedocs.io/en/latest/bundle_intro.html>`_ to easily start building workflows or integrating new models into your projects with the help of `tutorials <https://github.com/Project-MONAI/tutorials/tree/main/model_zoo>`_.
 
-  - Utilizing the `MONAI Bundle format <https://monai.readthedocs.io/en/latest/bundle_intro.html>`_ makes it easy to `get started <https://github.com/Project-MONAI/tutorials/tree/main/model_zoo>`_ on building workflows with MONAI.
+For more information about the MONAI Model Zoo, see :ref:`model-zoo`.
 
 Limitations
 ------------
 
-- MONAI for AMD ROCm only supports features from amd-cupy > 13.5.1 and hipCIM >= 1.0.00.
+- MONAI on ROCm only supports features from amd-cupy 13.5.1 and later, and hipCIM 25.10.00 and later.
 
 - There is no support for:
 
