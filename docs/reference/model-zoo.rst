@@ -8,24 +8,24 @@
 MONAI Model Zoo
 ****************
 
-The `MONAI Model Zoo <https://project-monai.github.io/model-zoo.html#/>`_ is a hub for researchers and data scientists to share, discover, and deploy the latest models from across the biomedical imaging community. By utilizing the standardized `MONAI Bundle format <https://monai.readthedocs.io/en/latest/bundle_intro.html>`_, you can easily `get started <https://github.com/Project-MONAI/tutorials/tree/main/model_zoo>`_ on building workflows or integrating new models into your projects.
+The `MONAI Model Zoo <https://project-monai.github.io/model-zoo.html#/>`_ is a hub for researchers and data scientists to share, discover, and deploy the latest models from across the biomedical imaging community. By using the standardized `MONAI Bundle format <https://monai.readthedocs.io/en/latest/bundle_intro.html>`_, you can easily start building workflows or integrating new models into your projects with the help of `tutorials <https://github.com/Project-MONAI/tutorials/tree/main/model_zoo>`_.
 
-MONAI for AMD ROCm provides seamless compatibility with the vast majority of models in the Model Zoo, helping both researchers and clinicians to accelerate state-of-the-art AI pipelines directly on AMD Instinct GPUs. Segmentation, detection, and classification models, including 2D and 3D workflows, run out of the box with minimal setup.
+MONAI on ROCm provides seamless compatibility with the vast majority of models in the Model Zoo, helping both researchers and clinicians to accelerate state-of-the-art AI pipelines directly on AMD Instinct GPUs. Segmentation, detection, and classification models, including 2D and 3D workflows, run out of the box with minimal setup.
 
 EXAONEPath model (hf_exaonepath-crc-msi-predictor) on ROCm
 -----------------------------------------------------------
 
-EXAONEPath 2.0 is a foundation model designed to deliver highly efficient, directly supervised patch-level representation learning for whole-slide images (WSIs). Except for a few other model zoo entries exclusively designed for NVIDIA, advanced models for computational pathology, such as EXAONEPath 2.0, are now supported on AMD hardware.
-Unlike typical patch-based self-supervised learning (SSL), EXAONE Path 2.0 leverages end-to-end slide-level supervision for powerful biomarker and molecular characteristic prediction with improved data efficiency.
+EXAONEPath 2.0 is a foundation model designed to deliver highly efficient, directly supervised patch-level representation learning for whole-slide images (WSIs). Except for a few other model zoo entries designed exclusively for NVIDIA, advanced computational pathology models, such as EXAONEPath 2.0, are now supported on AMD hardware.
+Unlike typical patch-based self-supervised learning (SSL), EXAONEPath 2.0 leverages end-to-end slide-level supervision for powerful biomarker and molecular characteristic prediction with improved data efficiency.
 
 .. _set-exaonepath:
 
 Setting up EXAONEPath 2.0 on ROCm
 -----------------------------------
 
-To run EXAONEPath 2.0 on AMD platforms using MONAI for AMD ROCm, follow these steps:
+To run EXAONEPath 2.0 on AMD platforms using MONAI on ROCm, follow these steps:
 
-1. Install MONAI. For installation instructions, see :ref:`installing-monai`.
+1. Install MONAI on ROCm. For installation instructions, see :ref:`installing-monai`.
 
 2. Clone the EXAONEPath 2.0 repo:
 
@@ -69,6 +69,6 @@ Key takeaways
 
 - Most MONAI Model Zoo models run out of the box on ROCm, fully utilizing the AMD Instinct GPUs.
 
-- EXAONEPath 2.0, which was previously exclusive to NVIDIA, is now supported on AMD platforms using MONAI for AMD ROCm. The setup instructions are provided in :ref:`set-exaonepath`.
+- EXAONEPath 2.0, previously exclusive to NVIDIA, is now supported on AMD platforms using MONAI on ROCm. The setup instructions are provided in :ref:`set-exaonepath`.
 
-This reinforces MONAI for AMD ROCm as a truly open, high-performance AI platform, that removes vendor lock-in and unleashes broader access to foundational pathology models.
+This reinforces MONAI on ROCm as a truly open, high-performance AI platform, that removes vendor lock-in and unleashes broader access to foundational pathology models.
