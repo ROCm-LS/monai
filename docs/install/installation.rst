@@ -27,7 +27,7 @@ System requirements
 
 - `PyTorch for AMD ROCm <https://pytorch.org/blog/pytorch-for-amd-rocm-platform-now-available-as-python-package/>`_ version: 2.8.0+rocm 6.4
 
-- NumPy 1.24 and later and earlier than 3.0
+- NumPy version: No earlier than 1.24 and no later than 2.4
 
 For the complete list of dependencies, see the `requirements.txt <https://github.com/ROCm-LS/monai/blob/main/requirements.txt>`_ file.
 
