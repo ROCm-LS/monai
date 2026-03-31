@@ -13,8 +13,6 @@ This topic discusses the supported features and limitations of MONAI 1.5.0 on RO
 Features
 ---------
 
-Here are the MONAI on ROCm features:
-
 - Deep learning inference
 
   - Accelerated inference for MONAI models using AMD ROCm and `HIP <https://rocm.docs.amd.com/projects/HIP/en/latest/>`_ backends.
