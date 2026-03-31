@@ -15,7 +15,7 @@ MONAI on ROCm provides seamless compatibility with the vast majority of models i
 EXAONEPath model (hf_exaonepath-crc-msi-predictor) on ROCm
 -----------------------------------------------------------
 
-EXAONEPath 2.0 is a foundation model designed to deliver highly efficient, directly supervised patch-level representation learning for whole-slide images (WSIs). Except for a few other model zoo entries designed exclusively for NVIDIA, advanced computational pathology models, such as EXAONEPath 2.0, are now supported on AMD hardware.
+EXAONEPath 2.0 is a foundation model designed to deliver highly efficient, directly supervised patch-level representation learning for whole-slide images (WSIs). Except for a few other model zoo entries designed exclusively for specific hardware, advanced computational pathology models, such as EXAONEPath 2.0, are now supported on AMD hardware.
 Unlike typical patch-based self-supervised learning (SSL), EXAONEPath 2.0 leverages end-to-end slide-level supervision for powerful biomarker and molecular characteristic prediction with improved data efficiency.
 
 .. _set-exaonepath:
@@ -69,6 +69,6 @@ Key takeaways
 
 - Most MONAI Model Zoo models run out of the box on ROCm, fully utilizing the AMD Instinct GPUs.
 
-- EXAONEPath 2.0, previously exclusive to NVIDIA, is now supported on AMD platforms using MONAI on ROCm. The setup instructions are provided in :ref:`set-exaonepath`.
+- EXAONEPath 2.0 is now supported on AMD platforms using MONAI on ROCm. The setup instructions are provided in :ref:`set-exaonepath`.
 
 This reinforces MONAI on ROCm as a truly open, high-performance AI platform, that removes vendor lock-in and unleashes broader access to foundational pathology models.
