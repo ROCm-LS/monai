@@ -1,32 +1,30 @@
 .. meta::
   :description: MONAI is a domain-optimized, open-source framework based on PyTorch, designed specifically for deep learning in healthcare imaging.
-  :keywords: ROCm-LS, life sciences, MONAI for AMD ROCm documentation, MONAI for AMD ROCm document
+  :keywords: ROCm-LS, life sciences, MONAI for AMD ROCm documentation, MONAI on ROCm document, AMD MONAI, ROCm MONAI
 
 .. _index:
 
-*********************************
-MONAI for AMD ROCm documentation
-*********************************
+*****************************
+MONAI on ROCm documentation
+*****************************
 
-The Medical Open Network for AI (MONAI) is a domain-optimized, open-source framework based on PyTorch, explicitly designed for deep learning in healthcare imaging. MONAI 1.0.0 for AMD ROCm is a HIP port of `MONAI upstream version 1.5.0 <https://github.com/Project-MONAI/MONAI/commit/d388d1c6fec8cb3a0eebee5b5a0b9776ca59ca83>`_. It is API-compatibile with upstream MONAI without requiring any code changes.
+The `Medical Open Network for AI (MONAI) <https://project-monai.github.io/>`_ is a domain-optimized, open-source framework based on PyTorch, explicitly designed for deep learning in healthcare imaging. MONAI 1.5.2 on ROCm is a :doc:`HIP <hip:index>` port of `MONAI upstream version 1.5.2 <https://monai.readthedocs.io/en/stable/whatsnew_1_5_2.html>`_. It is API-compatible with upstream MONAI without requiring any code changes.
 
-MONAI for AMD ROCm, a ROCm-enabled version of `MONAI <https://monai.io/>`_, is built on top of `PyTorch for AMD ROCm <https://pytorch.org/blog/pytorch-for-amd-rocm-platform-now-available-as-python-package/>`_, helping healthcare and life science innovators to leverage GPU acceleration with AMD Instinct GPUs for high-performance inference and training of medical AI applications.
+MONAI on ROCm is built on top of `PyTorch for AMD ROCm <https://pytorch.org/blog/pytorch-for-amd-rocm-platform-now-available-as-python-package/>`_, helping healthcare and life science innovators to leverage GPU acceleration with AMD Instinct™ GPUs for high-performance inference and training of medical AI applications.
 
-MONAI for AMD ROCm offers open, scalable, and high-performance solutions for life science and healthcare workloads.
+MONAI on ROCm offers open, scalable, and high-performance solutions for life science and healthcare workloads.
 
-The MONAI for AMD ROCm key features include:
+The MONAI on ROCm key features include:
 
-- Flexible preprocessing for multidimensional medical imaging data
+- Flexible preprocessing for multidimensional medical imaging data.
 
-- Compositional and portable APIs for smooth integration into existing workflows
+- Compositional and portable APIs for smooth integration into existing workflows.
 
-- Domain-specific implementations for networks, losses, evaluation metrics, and more
+- Domain-specific implementations for networks, losses, evaluation metrics, and more.
 
-- Customizable design according to user expertise
+- Customizable design according to user expertise.
 
-.. note::
-
-  MONAI for AMD ROCm is in an early access state. Running production workloads is not recommended.
+- Multi-GPU multinode data parallelism support.
 
 The code is open and hosted at `<https://github.com/ROCm-LS/monai>`_.
 
@@ -37,7 +35,7 @@ The documentation is structured as follows:
 
   .. grid-item-card:: Install
 
-    * :ref:`Installation <installing-monai>`
+    * :ref:`installing-monai`
 
   .. grid-item-card:: Reference
 
@@ -46,10 +44,10 @@ The documentation is structured as follows:
 
   .. grid-item-card:: Related content
 
-    * `MONAI blog <https://rocm.blogs.amd.com/artificial-intelligence/monai-rocm/README.html>`_
+    * `MONAI on ROCm blog <https://rocm.blogs.amd.com/artificial-intelligence/monai-rocm/README.html>`_
 
-To contribute to MONAI for AMD ROCm, refer to
-`Contributing to MONAI for AMD ROCm <https://github.com/ROCm-LS/monai/blob/main/CONTRIBUTING.md>`_.
+To contribute to MONAI on ROCm, refer to
+`Contributing to MONAI on ROCm <https://github.com/ROCm-LS/monai/blob/main/CONTRIBUTING.md>`_.
 
 You can find licensing information on the
 :doc:`Licensing <license>` page.
