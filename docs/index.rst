@@ -28,7 +28,7 @@ The MONAI on ROCm key features include:
 
   MONAI 1.5.0 on ROCm is in an early access state. Running production workloads is not recommended.
 
-The code is open and hosted at `<https://github.com/AMD-AIOSS/monai>`_.
+The code is open and hosted at `<https://github.com/ROCm-LS/monai>`_.
 
 The documentation is structured as follows:
 
