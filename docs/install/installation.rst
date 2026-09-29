@@ -29,7 +29,7 @@ System requirements
 
 - NumPy version: No earlier than 1.24 and no later than 2.4
 
-For the complete list of dependencies, see the `requirements.txt <https://github.com/ROCm-LS/monai/blob/main/requirements.txt>`_ file.
+For the complete list of dependencies, see the `requirements.txt <https://github.com/AMD-Ecosystem/monai/blob/main/requirements.txt>`_ file.
 
 .. _package-install:
 
@@ -130,7 +130,7 @@ To build MONAI on ROCm from source, follow the steps given in this section.
 
    .. code-block:: shell
 
-      git clone git@github.com:ROCm-LS/monai.git
+      git clone git@github.com:AMD-Ecosystem/monai.git
       cd monai
 
 4. Create and activate the development environment for building MONAI on ROCm.
@@ -211,5 +211,5 @@ Use these commands to verify the MONAI on ROCm installation:
    Entry-points:
    Project-URLs:
       Documentation, https://rocm.docs.amd.com/projects/monai/en/latest/
-      Bug Tracker, https://github.com/ROCm-LS/monai/issues
-      Source Code, https://github.com/ROCm-LS/monai/
+      Bug Tracker, https://github.com/AMD-Ecosystem/monai/issues
+      Source Code, https://github.com/AMD-Ecosystem/monai/

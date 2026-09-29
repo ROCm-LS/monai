@@ -28,7 +28,7 @@ The MONAI on ROCm key features include:
 
   MONAI 1.5.0 on ROCm is in an early access state. Running production workloads is not recommended.
 
-The code is open and hosted at `<https://github.com/ROCm-LS/monai>`_.
+The code is open and hosted at `<https://github.com/AMD-Ecosystem/monai>`_.
 
 The documentation is structured as follows:
 
@@ -49,7 +49,7 @@ The documentation is structured as follows:
     * `MONAI on ROCm blog <https://rocm.blogs.amd.com/artificial-intelligence/monai-rocm/README.html>`_
 
 To contribute to MONAI on ROCm, refer to
-`Contributing to MONAI on ROCm <https://github.com/ROCm-LS/monai/blob/main/CONTRIBUTING.md>`_.
+`Contributing to MONAI on ROCm <https://github.com/AMD-Ecosystem/monai/blob/main/CONTRIBUTING.md>`_.
 
 You can find licensing information on the
 :doc:`Licensing <license>` page.
