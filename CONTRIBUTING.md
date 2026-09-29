@@ -20,7 +20,7 @@ Welcome to Project MONAI! We're excited you're here and want to contribute. This
 
 ### Communicate with us
 
-We are happy to talk with you about your needs for MONAI for AMD ROCm&trade; and your ideas for contributing to the project. One way to do this is to create an issue discussing your thoughts. It might be that a very similar feature is under development or already exists, so an issue is a great starting point. If you are looking for an issue to resolve that will help Project MONAI, see the [*good first issue*](https://github.com/ROCm-LS/MONAI/labels/good%20first%20issue) and [*Contribution wanted*](https://github.com/ROCm-LS/MONAI/labels/Contribution%20wanted) labels.
+We are happy to talk with you about your needs for MONAI for AMD ROCm&trade; and your ideas for contributing to the project. One way to do this is to create an issue discussing your thoughts. It might be that a very similar feature is under development or already exists, so an issue is a great starting point. If you are looking for an issue to resolve that will help Project MONAI, see the [*good first issue*](https://github.com/AMD-Ecosystem/MONAI/labels/good%20first%20issue) and [*Contribution wanted*](https://github.com/AMD-Ecosystem/MONAI/labels/Contribution%20wanted) labels.
 
 ### Does it belong in PyTorch for AMD ROCm&trade; instead of MONAI for AMD ROCm&trade;?
 
