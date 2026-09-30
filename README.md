@@ -24,7 +24,7 @@ Its ambitions are as follows:
 ## Requirements
 
 MONAI for AMD ROCm works with Python 3.10, and depends directly on NumPy and [PyTorch for AMD ROCm](https://pytorch.org/blog/pytorch-for-amd-rocm-platform-now-available-as-python-package/) with many optional dependencies.
-* AMD MONAI supports [ROCm-LS/hipCIM](https://rocm.docs.amd.com/projects/hipCIM/en/latest/index.html) for accelerated image loading and processing on AMD Instinct GPUs.
+* AMD MONAI supports [AMD-Ecosystem/hipCIM](https://rocm.docs.amd.com/projects/hipCIM/en/latest/index.html) for accelerated image loading and processing on AMD Instinct GPUs.
 * See the `requirements*.txt` files for dependency version information.
 
 ## Installation
@@ -67,6 +67,6 @@ Ask and answer questions over on [MONAI's GitHub Discussions tab](https://github
 ## Links
 
 - Website: <https://instinct.docs.amd.com/latest/life-science/MONAI.html>
-- Code: <https://github.com/ROCm-LS/MONAI>
-- Issue tracker: <https://github.com/ROCm-LS/MONAI/issues>
+- Code: <https://github.com/AMD-Ecosystem/MONAI>
+- Issue tracker: <https://github.com/AMD-Ecosystem/MONAI/issues>
 - PyPI package: <https://pypi.amd.com/simple/amd-monai/>
